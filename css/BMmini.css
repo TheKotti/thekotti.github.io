@@ -1,0 +1,46 @@
+* {
+	font-family:sans-serif;
+}
+
+
+/*For roulette page*/
+
+#roulettesection {
+	
+}
+
+.genericextras,#extra1,#extra2,#extra3,#extra4,#extra5,#extra6 {
+	color:blue;
+}
+
+.missionextras {
+	color:red;
+}
+
+#chosenmission {
+	font-size:18px;
+	font-weight: bold;
+	color:#cc0000;
+}
+
+#themeswitch {
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	font-size:10px;
+}
+
+#resultsection2016 {
+	line-height:1.2;
+	margin-top:20px;
+}
+
+#resultsection2016 p {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+#info {
+	color: green;
+	padding-top: 15px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Hitman Roulette</title>
+		<link rel="stylesheet" href="css/mini.css" type="text/css" id="theme_css" />
+		<meta charset="utf-8">
+	</head>
+	
+	<body>
+		
+		<section id="roulettesection">
+
+				<select id="missionselect">
+					<option value="RANDOM">Random Mission</option>
+					<option value="TSS">The Showstopper</option>
+					<option value="WOT">World of Tomorrow</option>
+					<option value="ICON">The Icon</option>
+					<option value="AGC">A Gilded Cage</option>
+					<option value="AHBOS">A House Built on Sand</option>
+					<option value="C27">Club 27</option>
+					<option value="FF">Freedom Fighters</option>
+					<option value="SI">Situs Inversus</option>
+				</select>
+				<button type="button" class="nappi" onclick="literallyEverything()">Make it go</button>
+				<button type="button" id="filterbutton" class="nappi" onclick="showFilters()">Hide options</button>
+				<br>
+				<section id="filters">
+					<select id="modeselect">
+						<option value="MAIN">Main mission</option>
+						<option value="CONTRACTS">Contracts mode</option>
+						<option value="ELUSIVE">Elusive target</option>
+					</select>
+					<a id="contractinfonappi" href="roulettemini.html"  onclick="window.open('contracts.html', 'newwindow', 'width=450, height=600'); return false;">(Contracts mode info)</a>
+					<br>
+					<input type="checkbox" id="disguise" value="true" checked>Specific disguises
+					<br>
+					<input type="checkbox" id="melee" value="true" checked>Specific melee weapons
+					<br>
+					<input type="checkbox" id="firearm" value="true" checked>Specific firearms
+					<br>
+					<input type="checkbox" id="accident" value="true" checked>Specific accidents
+					<br>
+					<input type="checkbox" id="generic" value="true" checked>Generic kills
+				</section>
+
+				<p id="chosenmission"></p>
+				<section id="resultsection">
+					<p id="start"></p>
+					<p id="kill1"></p>
+					<p id="kill2"></p>
+					<p id="kill3"></p>
+					<p id="kill4"></p>
+					<p id="kill5"></p>
+					<p id="exit"></p><br>
+					<p id="extra1" class="extras"></p>
+					<p id="extra2" class="extras"></p>
+					<p id="extra3" class="extras"></p>
+					<p id="extra4" class="extras"></p>
+					<p id="extra5" class="extras"></p>
+					<p id="extra6" class="extras"></p>
+					<p id="info"></p>
+				</section>
+				
+				<a id="themeswitch" href="#">Switch theme</a>
+
+				<script src="js/2016new.js"></script>
+				<script src="js/2016new2.js"></script> 
+				<script>
+				document.getElementById("themeswitch").onclick = function(){
+					var theme = document.getElementById("theme_css");
+					if (theme.href.match("css/mini.css")) {
+						theme.href = "css/minidark.css";
+					} else if (theme.href.match = "css/minidark.css") {
+						theme.href = "css/mini.css";
+					}
+				}
+				</script>
+
+		</section>
+		
+		
+	</body>
+</html>

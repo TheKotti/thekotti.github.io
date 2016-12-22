@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Hitman Roulette</title>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+		<link rel="stylesheet" href="css/BM.css" type="text/css">
+		<meta charset="utf-8">		
+	</head>
+	
+	<body>
+		<header>
+			<img src="logo.png" />
+		</header>
+		
+		<nav>
+			<a href="roulette.html">Blood Money</a><br>
+			<a href="2016.html">Hitman 2016</a><br>
+			<a href="about.html">About</a>
+		</nav>
+	
+		<section id="roulettesection">
+
+				<select id="missionselect">
+					<option value="RANDOM">Random Mission</option>
+					<option value="AVY">A Vintage Year</option>
+					<option value="CD">Curtains Down</option>
+					<option value="FL">Flatline</option>
+					<option value="ANL">A New Life</option>
+					<option value="TMOC">The Murder of Crows</option>
+					<option value="YBWO">You Better Watch Out...</option>
+					<option value="DOTM">Death on the Mississippi</option>
+					<option value="TDDUP">Till Death Do Us Part</option>
+					<option value="AHOC">A House of Cards</option>
+					<option value="ADWTD">A Dance with the Devil</option>
+					<option value="AXXV">Amendment XXV</option>
+				</select>
+				<button type="button" style="display:inline" onclick="clearAll(),extraVariables(),chooseMission(),extraAmount()">Make it go</button>
+				<p id="difficulty" style="display:inline"></p>
+				<a id="popoutnappi" href="roulettemini.html"  onclick="window.open('roulettemini.html', 'newwindow', 'width=300, height=600'); return false;">Popout</a>
+				<br><select id="extraselect">
+					<option value="RANDOM">Random extras</option>
+					<option value="0">No extras</option>
+					<option value="1">1 extra</option>
+					<option value="2">2 extras</option>
+					<option value="3">3 extras</option>
+					<option value="4">4 extras</option>
+				</select>
+
+				<p id="chosenmission"></p>
+				<p id="mainresult"></p>
+				<p id="extra1" class="missionextras" class="allextras"></p>
+				<p id="extra2" class="missionextras" class="allextras"></p>
+				<p id="extra3" class="missionextras" class="allextras"></p>
+				<p id="extra4" class="missionextras" class="allextras"></p>
+				<p id="extra5" class="missionextras" class="allextras"></p>
+				<p id="getshotextra" class="genericextras" class="allextras"></p>
+				<p id="distractionsextra" class="genericextras" class="allextras"></p>
+				<p id="knockoutsextra" class="genericextras" class="allextras"></p>
+				<p id="suitonlyextra" class="genericextras" class="allextras"></p>
+				<p id="testi"></p>
+
+				<script src="js/roulette.js"></script>
+
+		</section>
+		
+		<footer>
+			<p>By <a href="https://twitter.com/TheKotti">Kotti</a></p>
+		</footer>
+		
+	</body>
+</html>

@@ -1,0 +1,23 @@
+/*For roulette page*/
+
+#roulettesection {
+	height:600px;
+}
+
+.genericextras {
+	color:blue;
+}
+
+.missionextras {
+	color:red;
+}
+
+#chosenmission {
+	font-size:18px;
+	font-weight: bold;
+	color:#cc0000;
+}
+
+#popoutnappi {
+	float:right;
+}

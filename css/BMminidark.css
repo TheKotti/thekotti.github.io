@@ -1,0 +1,62 @@
+* {
+	font-family:sans-serif;
+}
+
+body {
+	background-color:black;
+}
+
+p {
+	color:white;
+}
+
+#roulettesection {
+	
+}
+
+.genericextras,#extra1,#extra2,#extra3,#extra4,#extra5,#extra6 {
+	color:#00ccff;
+}
+
+.missionextras {
+	color:red;
+}
+
+#chosenmission {
+	font-size:18px;
+	font-weight: bold;
+	color:#cc0000;
+}
+
+#themeswitch {
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	font-size:10px;
+}
+
+#blue {
+	color:#00ccff;
+}
+
+#mainresult #green {
+	color:#00ff00
+}
+
+#resultsection2016 {
+	line-height:1.2;
+	margin-top:20px;
+}
+
+#resultsection2016 p {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+#filters {
+	color:white;
+}
+
+#info {
+	color: green;
+	padding-top: 15px;
+}
