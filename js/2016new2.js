@@ -45,7 +45,7 @@ var icon = {
 /*var landslide = {
 	missionTitle: "Landslide",
 	melee: [],
-	targetList: [],
+	targetList: ["Marco Abiatti"],
 	contractTargets: [],
 	entry: [],
 	exit: [],
