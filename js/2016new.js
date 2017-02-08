@@ -2,7 +2,7 @@
 function createContainerObject() {
 	var missionIndex = document.getElementById("missionselect");
 	var mission = missionIndex.options[missionIndex.selectedIndex].value;
-	var randomMissionList = [showstopper,wot,agc,icon,ahbos,c27,ff,si];
+	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si];
 	
 	for (var prop in generic) {
 		if (generic.hasOwnProperty(prop)) {
@@ -29,6 +29,15 @@ function createContainerObject() {
 			}
 			break;
 		}
+		case "HH": 
+		{
+			for (var prop in hh) {
+				if (hh.hasOwnProperty(prop)) {
+					container[prop] = hh[prop];
+				}
+			}
+			break;
+		}
 		case "WOT": 
 		{
 			for (var prop in wot) {
@@ -43,6 +52,15 @@ function createContainerObject() {
 			for (var prop in icon) {
 				if (agc.hasOwnProperty(prop)) {
 					container[prop] = icon[prop];
+				}
+			}
+			break;
+		}
+		case "LS": 
+		{
+			for (var prop in landslide) {
+				if (landslide.hasOwnProperty(prop)) {
+					container[prop] = landslide[prop];
 				}
 			}
 			break;
@@ -142,11 +160,11 @@ function removeUndefined() {
 //Randomizes extra variables for the result
 function extras() {
 	
-if (Math.random() < 0.09) {
+if (Math.random() < 0.09 && document.getElementById("disguise").checked == 0) {
 	result.extra1 = "Never change into a new disguise.";
 }
 
-if (Math.random() < 0.19) {
+if (Math.random() < 0.19 && document.getElementById("disguise").checked == 0) {
 	result.extra2 = "Do not kill or subdue non-targets.";
 }
 
@@ -155,7 +173,7 @@ if (Math.random() < 0.14) {
 }
 
 if (Math.random() < 0.19) {
-	result.extra4 = "When using firearms, go for headshots.";
+	result.extra4 = "Do not use firearms as distractions or to destroy objects.";
 }
 
 if (Math.random() < 0.09) {

@@ -4,7 +4,7 @@ var container = {};
 
 var killList = [];
 
-var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path"];
+var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path"];
 
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
@@ -16,9 +16,19 @@ var showstopper = {
 	missionTitle: "The Showstopper",
 	melee: ["Screwdriver","Letter Opener","Scissors","Kitchen Knife","Fiber Wire","Fire Axe","Battle Axe","Saber","Hatchet"],
 	targetList: ["Viktor Novikov","Dalia Margolis"],
-	contractTargets:["Viktor Novikov","Dalia Margolis","Sebastian Sato","Helmut Kruger","Max Decker","Sheik Salman Al-Ghazali","Liza McKenzie","Hailey Brennan","Kurt Donovan","Sophus Fatale"],
-	entry: ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Kitchen","Locker Room","IAGO Auction","AV Center","Dressing Area"],
+	contractTargets: ["Viktor Novikov","Dalia Margolis","Sebastian Sato","Helmut Kruger","Max Decker","Sheik Salman Al-Ghazali","Liza McKenzie","Hailey Brennan","Kurt Donovan","Sophus Fatale"],
+	entry: ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover in Kitchen","Undercover in Locker Room","Undercover at IAGO Auction","Undercover in AV Center","Undercover in Dressing Area"],
 	exit: ["Front Gates","Kitchen","Helicopter","Speedboat"],
+	disguises: ["47 in his Suit","Auction Staff","Chef","CICADA Bodyguard","Event Crew","Palace Staff","Security Guard","Stylist","Helmut Kruger","Sheikh","Vampire Magician"],
+};
+
+var hh = {
+	missionTitle: "Holiday Hoarders",
+	melee: ["Screwdriver","Letter Opener","Scissors","Kitchen Knife","Fiber Wire","Fire Axe","Battle Axe","Saber","Hatchet","Holiday Fireaxe","Shuriken","Circumcision Knife"],
+	targetList: ['Harry "Smokey" Bagnato', 'Marv "Slick" Gonif'],
+	contractTargets: ['Harry "Smokey" Bagnato', 'Marv "Slick" Gonif'],
+	entry: ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover in Kitchen","Undercover in Locker Room","Undercover at IAGO Auction","Undercover in AV Center","Undercover in Dressing Area"],
+	exit: ["Front Gates","Kitchen","Helicopter","Speedboat", "Chimney"],
 	disguises: ["47 in his Suit","Auction Staff","Chef","CICADA Bodyguard","Event Crew","Palace Staff","Security Guard","Stylist","Helmut Kruger","Sheikh","Vampire Magician"],
 };
 
@@ -27,7 +37,7 @@ var wot = {
 	melee: ["Battle Axe","Old Axe","Katana","Fire Axe","Saber","Amputation Knife","Circumcision Knife","Combat Knife","Hatchet","Kitchen Knife","Letter Opener","Screwdriver","Fiber Wire"],
 	targetList: ["Silvio Caruso","Francesca De Santis"],
 	contractTargets: ["Silvio Caruso","Francesca De Santis","Terenzio Endrizzi","Roberto Vargas","Chef Marcello Ray","Luigi Saltatore","Dr. Oscar Lafayette","Torres Piombo","Sal Falcone","Viana Buccho","Fabio Pavione","Mario Saltatore"],
-	entry: ["Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","Mansion Kitchen","Field Lab","Mansion Garden","Security Staff"],
+	entry: ["Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","Undercover in Mansion Kitchen","Undercover in Field Lab","Undercover in Mansion Garden","Undercover as Security Staff"],
 	exit: ["Car","Speedboat (Pier)","Plane","Speedboat (Ruins)"],
 	disguises: ["47 in his Suit","Biolab Security","Bodyguard","Bohemian","Butler","Church Staff","Cyclist","Delivery Man","Dr. Oscar Lafayette","Gardener","Green Plumber","Hazmat Suit","Housekeeper","Kitchen Assistant","Lab Technician","Mansion Chef","Mansion Security","Mansion Staff","Plague Doctor","Priest","Private Detective","Red Plumber","Roberto Vargas","Store Clerk","Street Performer","Waiter"],
 };
@@ -42,15 +52,15 @@ var icon = {
 	disguises: ["47 in his Suit","Kitchen Assistant","Moview Crew","Security Officer","SFX Crew"],
 };
 
-/*var landslide = {
+var landslide = {
 	missionTitle: "Landslide",
-	melee: [],
+	melee: ["Fiber Wire","Screwdriver","Scissors","Old Axe","Kitchen Knife","Saber","Folding Knife","Fire Axe","Letter Opener","Cleaver"],
 	targetList: ["Marco Abiatti"],
-	contractTargets: [],
-	entry: [],
-	exit: [],
-	disguises: [],
-};*/
+	contractTargets: ["Marco Abiatti","Marcello Folliero","Alberta Arcuri","Padre Francesco","Mario Fratelli","Luigi Fratelli","Cristina Dionisi","Roberto Mulo","Dario Bronzo","Renzo Forte","Salvatore Bravuomo","Silvestro Pugliesi"],
+	entry: ["Promenade"],
+	exit: ["Town Gate","Car","Speedboat"],
+	disguises: ["47 in his Suit","Stage Crew","Security","Bodyguard","Photographer","Waiter","Church Staff","Priest","Gardener","Green Plumber","Red Plumber","Kitchen Assistant","Salvatore Bravuomo","Bohemian"],
+};
 
 var agc = {
 	missionTitle: "A Gilded Cage",
