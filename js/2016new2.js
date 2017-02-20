@@ -112,3 +112,16 @@ var si = {
 	sodersKills: ["Throw the Heart into the Trash Can","Shoot the Heart","Electricution","Pistol","Large Firearm","Explosion","Poison the Stem Cells","Reveal Yourself as 47","Fail the Surgery","Make the Surgeon Fail the Surgery","Robot Arms"],
 	disguises: ["Ninja","47 in his Suit","Baseball Player","Bodyguard","Chef","Chief Surgeon","Doctor","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","Motorcyclist","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","VIP Patient (Portman)","Yoga Instructor"]
 };
+
+var mission_names_map = {
+	"TSS" : showstopper,
+	"HH": hh,
+	"WOT": wot,
+	"ICON": icon,
+	"LS": landslide,
+	"AGC": agc,
+	"AHBOS": ahbos,
+	"C27": c27,
+	"FF": ff,
+	"SI": si
+}
