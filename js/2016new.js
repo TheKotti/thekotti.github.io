@@ -46,6 +46,7 @@ function removeUndefined() {
 };
 
 //Randomizes extra variables for the result
+// TODO: Turn into data
 function extras() {
 	
 if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0) {
@@ -109,60 +110,47 @@ function disguisesOn() {
 function targetsAndKills() {
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	var missionIndex = document.getElementById("missionselect");
-	var mission = missionIndex.options[missionIndex.selectedIndex].value;
 	
 	if (mode == "CONTRACTS") {
 		container.targetList = container.contractTargets;
 		shuffle(container.targetList);
 	}
-	if (mode == "ELUSIVE") {
+	if (mode == "ELUSIVE")
 		container.targetList = ["Elusive Target"];
-	}
 	
-	result.target1 = container.targetList[0];
-	result.weapon1 = killList[Math.floor(Math.random()*killList.length)];
-	result.target2 = container.targetList[1];
-	result.weapon2 = killList[Math.floor(Math.random()*killList.length)];
-	result.target3 = container.targetList[2];
-	result.weapon3 = killList[Math.floor(Math.random()*killList.length)];
-	result.target4 = container.targetList[3];
-	result.weapon4 = killList[Math.floor(Math.random()*killList.length)];
-	result.target5 = container.targetList[4];
-	result.weapon5 = killList[Math.floor(Math.random()*killList.length)];
+	// Copy the target list
+	result.targets = container.targetList.slice();
+	// Randomize weapons
+	shuffle(killList);
+	result.weapons = killList;
 		
 	if (mode == "CONTRACTS") {
 		var targetAmountCheck = Math.random();
 		if (targetAmountCheck < 0.84) {
-			result.target5 = undefined;
+			result.targets[4] = undefined;
 		}
 		if (targetAmountCheck < 0.69) {
-			result.target4 = undefined;
+			result.targets[3] = undefined;
 		}
 		if (targetAmountCheck < 0.39) {
-			result.target3 = undefined;
+			result.targets[2] = undefined;
 		}
 		if (targetAmountCheck < 0.04) {
-			result.target2 = undefined;
+			result.targets[1] = undefined;
 		}
 	}
 	
-	if (document.getElementById("disguise").checked == 1)  {
-		result.disguise1 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise2 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise3 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise4 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise5 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-	} else {
-		result.disguise1 = "";
-		result.disguise2 = "";
-		result.disguise3 = "";
-		result.disguise4 = "";
-		result.disguise5 = "";
-	}
+	if (document.getElementById("disguise").checked)  {
+		//copy the disguise list, add  " as " to every element, then shuffle it
+		result.disguises =
+			container.disguises.slice().map(function(e){ return " as " + e; });
+		shuffle(result.disguises);
+	} else
+		result.disguises = ["", "", "", "", ""];
 	
+	// add Soders-specific kill if relevant
 	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(document.getElementById("melee").checked == 0 && document.getElementById("firearm").checked == 0 && document.getElementById("accident").checked == 0 && document.getElementById("generic").checked == 0)) {
-		result.weapon2 = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
+		result.weapons[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
 	}
 };
 
@@ -176,25 +164,25 @@ function containerToResult() {
 //Makes text appear
 function writeEverything() {
 	document.getElementById("chosenmission").innerHTML = result.missionTitle;
-	document.getElementById("start").innerHTML = "<p class='bluetext'>Start</p>: " + result.entry;
-	document.getElementById("kill1").innerHTML = "<p class='redtext'>" + result.target1 + "</p>: " + result.weapon1 + result.disguise1;
-	document.getElementById("kill2").innerHTML = "<p class='redtext'>" + result.target2 + "</p>: " + result.weapon2 + result.disguise2;
-	document.getElementById("kill3").innerHTML = "<p class='redtext'>" + result.target3 + "</p>: " + result.weapon3 + result.disguise3;
-	document.getElementById("kill4").innerHTML = "<p class='redtext'>" + result.target4 + "</p>: " + result.weapon4 + result.disguise4;
-	document.getElementById("kill5").innerHTML = "<p class='redtext'>" + result.target5 + "</p>: " + result.weapon5 + result.disguise5;
-	document.getElementById("exit").innerHTML = "<p class='bluetext'>Exit</p>: " + result.exit;
-	document.getElementById("extra1").innerHTML = result.extra1;
-	document.getElementById("extra2").innerHTML = result.extra2;
-	document.getElementById("extra3").innerHTML = result.extra3;
-	document.getElementById("extra4").innerHTML = result.extra4;
-	document.getElementById("extra5").innerHTML = result.extra5;
-	document.getElementById("extra6").innerHTML = result.extra6;
+	document.getElementById("start").innerHTML =
+		"<p class='bluetext'>Start</p>: " + result.entry;
+	
+	for(var i = 0; i < 5; ++i)
+		document.getElementById("kill" + (i+1)).innerHTML = 
+			"<p class='redtext'>" + result.targets[i]
+			+ "</p>: " + result.weapons[i] + result.disguises[i];
+	
+	for(var i = 1; i < 7; ++i)
+		document.getElementById("extra" + i).innerHTML = result["extra"+i];
+	
+	document.getElementById("exit").innerHTML =
+		"<p class='bluetext'>Exit</p>: " + result.exit;
 	
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	if (result.missionTitle == "Freedom Fighters" && mode == "MAIN") {
-		document.getElementById("info").innerHTML = "To gain access to the exits, recreate the mission in Contracts mode."
-	}
+	if (result.missionTitle == "Freedom Fighters" && mode == "MAIN")
+		document.getElementById("info").innerHTML =
+			"To gain access to the exits, recreate the mission in Contracts mode.";
 };
 
 //All the things that should happen when you make it go
@@ -227,7 +215,7 @@ function showFilters() {
 //Shuffles an array
 function shuffle(array) {
   var m = array.length, t, i;
-
+  
   // While there remain elements to shuffle…
   while (m) {
 
