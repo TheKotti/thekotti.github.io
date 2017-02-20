@@ -1,116 +1,22 @@
 //Creates the object that will be used as a source for the mission objectives
 function createContainerObject() {
 	var missionIndex = document.getElementById("missionselect");
-	var mission = missionIndex.options[missionIndex.selectedIndex].value;
+	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
 	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si];
 	
-	for (var prop in generic) {
-		if (generic.hasOwnProperty(prop)) {
+	for (var prop in generic)
+		if (generic.hasOwnProperty(prop))
 			container[prop] = generic[prop];
-		}
-	}
-	switch(mission) {
-		case "RANDOM": 
-		{
-			randomMission = randomMissionList[Math.floor(Math.random()*randomMissionList.length)];
-			for (var prop in randomMission) {
-				if (randomMission.hasOwnProperty(prop)) {
-					container[prop] = randomMission[prop];
-				}
-			}
-			break;
-		}
-		case "TSS": 
-		{
-			for (var prop in showstopper) {
-				if (showstopper.hasOwnProperty(prop)) {
-					container[prop] = showstopper[prop];
-				}
-			}
-			break;
-		}
-		case "HH": 
-		{
-			for (var prop in hh) {
-				if (hh.hasOwnProperty(prop)) {
-					container[prop] = hh[prop];
-				}
-			}
-			break;
-		}
-		case "WOT": 
-		{
-			for (var prop in wot) {
-				if (wot.hasOwnProperty(prop)) {
-					container[prop] = wot[prop];
-				}
-			}
-			break;
-		}
-		case "ICON": 
-		{
-			for (var prop in icon) {
-				if (agc.hasOwnProperty(prop)) {
-					container[prop] = icon[prop];
-				}
-			}
-			break;
-		}
-		case "LS": 
-		{
-			for (var prop in landslide) {
-				if (landslide.hasOwnProperty(prop)) {
-					container[prop] = landslide[prop];
-				}
-			}
-			break;
-		}
-		case "AGC": 
-		{
-			for (var prop in agc) {
-				if (icon.hasOwnProperty(prop)) {
-					container[prop] = agc[prop];
-				}
-			}
-			break;
-		}
-		case "AHBOS": 
-		{
-			for (var prop in ahbos) {
-				if (ahbos.hasOwnProperty(prop)) {
-					container[prop] = ahbos[prop];
-				}
-			}
-			break;
-		}
-		case "C27": 
-		{
-			for (var prop in c27) {
-				if (c27.hasOwnProperty(prop)) {
-					container[prop] = c27[prop];
-				}
-			}
-			break;
-		}
-		case "FF": 
-		{
-			for (var prop in ff) {
-				if (ff.hasOwnProperty(prop)) {
-					container[prop] = ff[prop];
-				}
-			}
-			break;
-		}
-		case "SI": 
-		{
-			for (var prop in si) {
-				if (si.hasOwnProperty(prop)) {
-					container[prop] = si[prop];
-				}
-			}
-			break;
-		}
-	}
+	
+	// Javascript scope rules are hilarious 
+	if(mission_name === "RANDOM")
+		var current_mission = randomMissionList[Math.floor(Math.random()*randomMissionList.length)];
+	else
+		var current_mission = mission_names_map[mission_name];
+	
+	for (var prop in current_mission)
+		if(current_mission.hasOwnProperty(prop))
+			container[prop] = current_mission[prop];
 };
 
 //Makes sure old results are cleared when new objectives are randomized
@@ -119,11 +25,10 @@ function clearAll() {
 	container = {};
 	result = {};
 	document.getElementById("info").innerHTML = "";
-
 };
 
 //Hides unused html elements that appear in some results
-function removeUndefined() {
+function removeUndefined() {	
 	if ("undefined" === typeof result.target2) {
 		document.getElementById("kill2").innerHTML = "";
 	}
@@ -160,27 +65,27 @@ function removeUndefined() {
 //Randomizes extra variables for the result
 function extras() {
 	
-if (Math.random() < 0.09 && document.getElementById("disguise").checked == 0) {
+if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0) {
 	result.extra1 = "Never change into a new disguise.";
 }
 
-if (Math.random() < 0.19 && document.getElementById("disguise").checked == 0) {
+if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0) {
 	result.extra2 = "Do not kill or subdue non-targets.";
 }
 
-if (Math.random() < 0.14) {
+if (Math.random() < 0.18) {
 	result.extra3 = "Do not throw items as distractions.";
 }
 
-if (Math.random() < 0.19) {
+if (Math.random() < 0.25) {
 	result.extra4 = "Do not use firearms as distractions or to destroy objects.";
 }
 
-if (Math.random() < 0.09) {
+if (Math.random() < 0.12) {
 	result.extra5 = "Do not climb.";
 }
 
-if (Math.random() < 0.04) {
+if (Math.random() < 0.05) {
 	result.extra6 = "Do not crouch.";
 }
 
@@ -331,7 +236,8 @@ function literallyEverything() {
 	containerToResult();
 	disguisesOn();
 	targetsAndKills();
-	extras();
+	if(document.getElementById("restrictions").checked)
+		extras();
 	writeEverything();
 	removeUndefined();
 };
