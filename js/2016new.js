@@ -23,62 +23,39 @@ function createContainerObject() {
 
 //Makes sure old results are cleared when new objectives are randomized
 function clearAll() {
-	killList = [];
 	container = {};
 	result = {};
-	document.getElementById("info").innerHTML = "";
-};
-
-//Hides unused html elements that appear in some results
-function removeUndefined() { 
-	var optionals = [
-		"kill2", "kill3", "kill4", "kill5",
-		"extra1", "extra2", "extra3", "extra4", "extra5", "extra6"
-	]
-	
-	optionals.forEach( function(element){
-		var HTML_element = document.getElementById(element).innerHTML;
-		var missing = !(HTML_element.indexOf("undefined") === -1);
-	
-		if(missing)
-			document.getElementById(element).innerHTML = "";
-	});
 };
 
 //Randomizes extra variables for the result
 // TODO: Turn into data
 function extras() {
+	result.extras = []
 	
-if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0) {
-	result.extra1 = "Never change into a new disguise.";
-}
+if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0)
+	result.extras.push("Never change into a new disguise.");
 
-if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0) {
-	result.extra2 = "Do not kill or subdue non-targets.";
-}
+if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
+	result.extras.push("Do not kill or subdue non-targets.");
+	
+if (Math.random() < 0.18) 
+	result.extras.push("Do not throw items as distractions.");
 
-if (Math.random() < 0.18) {
-	result.extra3 = "Do not throw items as distractions.";
-}
+if (Math.random() < 0.25)
+	result.extras.push("Do not use firearms as distractions or to destroy objects.");
 
-if (Math.random() < 0.25) {
-	result.extra4 = "Do not use firearms as distractions or to destroy objects.";
-}
+if (Math.random() < 0.12)
+	result.extras.push("Do not climb.");
 
-if (Math.random() < 0.12) {
-	result.extra5 = "Do not climb.";
-}
-
-if (Math.random() < 0.05) {
-	result.extra6 = "Do not crouch.";
-}
-
+if (Math.random() < 0.05)
+	result.extras.push("Do not crouch.");
+	
 };
 
-//Creates the list of weapons/accidents from which the kill methods are pulled
-
-// TODO: Turn into a pure function
+//Returns the list of weapons/accidents from which the kill methods are pulled
 function createWeaponList() {
+	var killList = []
+	
 	if (document.getElementById("melee").checked)
 		killList = killList.concat(container.melee);
 			
@@ -94,17 +71,9 @@ function createWeaponList() {
 	var no_weapons_selected = !(killList.length > 0);
 	if (no_weapons_selected)
 		killList.push("No weapons selected!");
-};
-
-// Removes "Ninja" and "47 in his Suit" from potential disguises
-// when starting in an undercover location
-function disguisesOn() {
-	var undercover_start = suitStarts.indexOf(result.entry) === -1;
 	
-	if (undercover_start)
-		container.disguises.splice(0,1);
-		// The first disguise in the list is always the non-undercover one
-}
+	return killList;
+};
 
 //Chooses targets and kill methods
 function targetsAndKills() {
@@ -120,25 +89,26 @@ function targetsAndKills() {
 	
 	// Copy the target list
 	result.targets = container.targetList.slice();
+	result.num_targets = result.targets.length;
 	// Randomize weapons
-	shuffle(killList);
-	result.weapons = killList;
+	result.weapons = createWeaponList();
+	shuffle(result.weapons);
 		
 	if (mode == "CONTRACTS") {
 		var targetAmountCheck = Math.random();
-		if (targetAmountCheck < 0.84) {
-			result.targets[4] = undefined;
-		}
-		if (targetAmountCheck < 0.69) {
-			result.targets[3] = undefined;
-		}
-		if (targetAmountCheck < 0.39) {
-			result.targets[2] = undefined;
-		}
-		if (targetAmountCheck < 0.04) {
-			result.targets[1] = undefined;
-		}
+		result.num_targets = 5;
+		if (targetAmountCheck < 0.84) result.num_targets--;
+		if (targetAmountCheck < 0.69) result.num_targets--;
+		if (targetAmountCheck < 0.39) result.num_targets--;
+		if (targetAmountCheck < 0.04) result.num_targets--;
 	}
+	
+	// Removee "Ninja" and "47 in his Suit" from potential disguises
+	// when starting in an undercover location
+	var undercover_start = suitStarts.indexOf(result.entry) === -1;
+	if (undercover_start)
+		// The first disguise in the list is always the non-undercover one
+		container.disguises.splice(0,1);
 	
 	if (document.getElementById("disguise").checked)  {
 		//copy the disguise list, add  " as " to every element, then shuffle it
@@ -167,14 +137,21 @@ function writeEverything() {
 	document.getElementById("start").innerHTML =
 		"<p class='bluetext'>Start</p>: " + result.entry;
 	
-	for(var i = 0; i < 5; ++i)
-		document.getElementById("kill" + (i+1)).innerHTML = 
-			"<p class='redtext'>" + result.targets[i]
-			+ "</p>: " + result.weapons[i] + result.disguises[i];
-	
-	for(var i = 1; i < 7; ++i)
-		document.getElementById("extra" + i).innerHTML = result["extra"+i];
-	
+	// Write to the HTML elements from the results object
+	for(var i = 0; i < 5; ++i){ // kills
+		if(i < result.num_targets)
+			document.getElementById("kill" + (i+1)).innerHTML = 
+				"<p class='redtext'>" + result.targets[i]
+				+ "</p>: " + result.weapons[i] + result.disguises[i];
+		else
+			document.getElementById("kill" + (i+1)).innerHTML = "";
+	}
+	for(var i = 0; i < 6; ++i){ // extras
+		if(i < result.extras.length)
+			document.getElementById("extra" + (i+1)).innerHTML = result.extras[i];
+		else 
+			document.getElementById("extra" + (i+1)).innerHTML = "";
+	}
 	document.getElementById("exit").innerHTML =
 		"<p class='bluetext'>Exit</p>: " + result.exit;
 	
@@ -183,20 +160,19 @@ function writeEverything() {
 	if (result.missionTitle == "Freedom Fighters" && mode == "MAIN")
 		document.getElementById("info").innerHTML =
 			"To gain access to the exits, recreate the mission in Contracts mode.";
+	else
+		document.getElementById("info").innerHTML = "";
 };
 
 //All the things that should happen when you make it go
 function literallyEverything() {
 	clearAll();
 	createContainerObject();
-	createWeaponList();
 	containerToResult();
-	disguisesOn();
 	targetsAndKills();
 	if(document.getElementById("restrictions").checked)
 		extras();
 	writeEverything();
-	removeUndefined();
 };
 
 //Displays/hides the options
