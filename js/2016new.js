@@ -8,7 +8,6 @@ function createContainerObject() {
 		if (generic.hasOwnProperty(prop))
 			container[prop] = generic[prop];
 	
-	// Javascript scope rules are hilarious 
 	if(mission_name === "RANDOM")
 		var current_mission = randomMissionList[Math.floor(Math.random()*randomMissionList.length)];
 	else
@@ -17,6 +16,9 @@ function createContainerObject() {
 	for (var prop in current_mission)
 		if(current_mission.hasOwnProperty(prop))
 			container[prop] = current_mission[prop];
+	
+	// Create a copy to avoid modifying the originals
+	container.disguises = current_mission.disguises.slice()
 };
 
 //Makes sure old results are cleared when new objectives are randomized
@@ -92,48 +94,34 @@ if (Math.random() < 0.05) {
 };
 
 //Creates the list of weapons/accidents from which the kill methods are pulled
+
+// TODO: Turn into a pure function
 function createWeaponList() {
-	if (document.getElementById("melee").checked == 1) {
-		for (i = 0; i < container.melee.length; i++) {
-			killList.push(container.melee[i])
-		}
-	}
-	if (document.getElementById("firearm").checked == 1) {
-		for (i = 0; i < container.firearms.length; i++) {
-			killList.push(container.firearms[i])
-		}
-	}
-	if (document.getElementById("accident").checked == 1) {
-		for (i = 0; i < container.accidents.length; i++) {
-			killList.push(container.accidents[i])
-		}
-	}
-	if (document.getElementById("generic").checked == 1) {
-		for (i = 0; i < container.kills.length; i++) {
-			killList.push(container.kills[i])
-		}
-	}
-	if (document.getElementById("melee").checked == 0 && document.getElementById("firearm").checked == 0 && document.getElementById("accident").checked == 0 && document.getElementById("generic").checked == 0) {
+	if (document.getElementById("melee").checked)
+		killList = killList.concat(container.melee);
+			
+	if (document.getElementById("firearm").checked)
+		killList = killList.concat(container.firearms);
+	
+	if (document.getElementById("accident").checked)
+		killList = killList.concat(container.accidents);
+	
+	if (document.getElementById("generic").checked)
+		killList = killList.concat(container.kills);
+	
+	var no_weapons_selected = !(killList.length > 0);
+	if (no_weapons_selected)
 		killList.push("No weapons selected!");
-	}
 };
 
+// Removes "Ninja" and "47 in his Suit" from potential disguises
+// when starting in an undercover location
 function disguisesOn() {
-	var startIndex = suitStarts.indexOf(result.entry);
+	var undercover_start = suitStarts.indexOf(result.entry) === -1;
 	
-	if (result.missionTitle == "Situs Inversus") {
-		if (startIndex == -1 && container.disguises[0] == "Ninja") {
-			container.disguises.splice(0,1);
-		} else if (startIndex >= 0 && container.disguises[0] != "Ninja") {
-			container.disguises.unshift("Ninja");
-		}
-	} else {
-		if (startIndex == -1 && container.disguises[0] == "47 in his Suit") {
-			container.disguises.splice(0,1);
-		} else if (startIndex >= 0 && container.disguises[0] != "47 in his Suit") {
-			container.disguises.unshift("47 in his Suit");
-		}
-	}
+	if (undercover_start)
+		container.disguises.splice(0,1);
+		// The first disguise in the list is always the non-undercover one
 }
 
 //Chooses targets and kill methods
