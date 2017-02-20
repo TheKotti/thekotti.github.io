@@ -30,38 +30,19 @@ function clearAll() {
 };
 
 //Hides unused html elements that appear in some results
-function removeUndefined() {	
-	if ("undefined" === typeof result.target2) {
-		document.getElementById("kill2").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target3) {
-		document.getElementById("kill3").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target4) {
-		document.getElementById("kill4").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target5) {
-		document.getElementById("kill5").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra1) {
-		document.getElementById("extra1").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra2) {
-		document.getElementById("extra2").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra3) {
-		document.getElementById("extra3").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra4) {
-		document.getElementById("extra4").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra5) {
-		document.getElementById("extra5").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra6) {
-		document.getElementById("extra6").innerHTML = "";
-	}
-
+function removeUndefined() { 
+	var optionals = [
+		"kill2", "kill3", "kill4", "kill5",
+		"extra1", "extra2", "extra3", "extra4", "extra5", "extra6"
+	]
+	
+	optionals.forEach( function(element){
+		var HTML_element = document.getElementById(element).innerHTML;
+		var missing = !(HTML_element.indexOf("undefined") === -1);
+	
+		if(missing)
+			document.getElementById(element).innerHTML = "";
+	});
 };
 
 //Randomizes extra variables for the result
