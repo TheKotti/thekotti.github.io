@@ -187,6 +187,37 @@ function generate_result() {
 function button_MakeItGo(){
 	var result = generate_result();
 	writeEverything(result);
+	history_push(result);
+}
+
+//adds x to the history stack for a maximum of 20 most recent runs
+//forgets all results more recent than the last selected (blocks redo)
+function history_push(x){
+	redo_stack = [];
+	history_past.push(x);
+	if(history_past.length > 20)
+		history_past.shift();
+}
+
+
+// undo and redo functions, affect global state
+function history_undo(){
+	if(history_past.length < 2)
+		return;
+	
+	//add the currently displayed result to the redo stack
+	redo_stack.push(history_past.pop());
+	var previous = history_past[history_past.length - 1];
+	writeEverything(previous);
+}
+
+function history_redo(){
+	if(redo_stack.length < 1)
+		return;
+	
+	history_past.push(redo_stack.pop());
+	var previous = history_past[history_past.length - 1];
+	writeEverything(previous);
 }
 
 //Displays/hides the options
