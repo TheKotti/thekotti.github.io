@@ -26,8 +26,8 @@
 				<button type="button" class="nappi" onclick="button_MakeItGo()">Make it go</button>
 				<button type="button" id="filterbutton" class="nappi" onclick="showFilters()">Hide options</button>
 				<br>
-				<button type="button" class="nappi" onclick="history_undo()">Undo</button>
-				<button type="button" class="nappi" onclick="history_redo()">Redo</button>
+				<button type="button" id="undo_nappi" disabled = "true" class="nappi" onclick="history_undo()">Undo</button>
+				<button type="button" id="redo_nappi" disabled = "true" class="nappi" onclick="history_redo()">Redo</button>
 				<br>
 				<section id="filters">
 					<select id="modeselect">

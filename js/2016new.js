@@ -191,12 +191,17 @@ function button_MakeItGo(){
 }
 
 //adds x to the history stack for a maximum of 20 most recent runs
-//forgets all results more recent than the last selected (blocks redo)
 function history_push(x){
 	redo_stack = [];
 	history_past.push(x);
 	if(history_past.length > 20)
 		history_past.shift();
+	
+	//history exists, enable undo_nappi
+	if(history_past.length > 1)
+		document.getElementById("undo_nappi").disabled = false;
+	// disable redo_nappi
+	document.getElementById("redo_nappi").disabled = true;
 }
 
 
@@ -209,6 +214,12 @@ function history_undo(){
 	redo_stack.push(history_past.pop());
 	var previous = history_past[history_past.length - 1];
 	writeEverything(previous);
+	
+	// enable redo_nappi
+	document.getElementById("redo_nappi").disabled = false;
+	//history exists, enable undo_nappi
+	if(history_past.length < 2)
+		document.getElementById("undo_nappi").disabled = true;
 }
 
 function history_redo(){
@@ -218,6 +229,14 @@ function history_redo(){
 	history_past.push(redo_stack.pop());
 	var previous = history_past[history_past.length - 1];
 	writeEverything(previous);
+	
+	
+	//history exists, enable undo_nappi
+	if(history_past.length > 1)
+		document.getElementById("undo_nappi").disabled = false;
+	// disable redo_nappi
+	if(redo_stack.length < 1)
+		document.getElementById("redo_nappi").disabled = true;
 }
 
 //Displays/hides the options
