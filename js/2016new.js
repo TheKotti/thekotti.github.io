@@ -1,5 +1,7 @@
 //Creates the object that will be used as a source for the mission objectives
 function createContainerObject() {
+	container = {};
+	
 	var missionIndex = document.getElementById("missionselect");
 	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
 	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si];
@@ -19,81 +21,91 @@ function createContainerObject() {
 	
 	// Create a copy to avoid modifying the originals
 	container.disguises = current_mission.disguises.slice()
-};
-
-//Makes sure old results are cleared when new objectives are randomized
-function clearAll() {
-	container = {};
-	result = {};
+	
+	return container
 };
 
 //Randomizes extra variables for the result
-// TODO: Turn into data
-function extras() {
-	result.extras = []
+function createExtrasList() {
+	if(!document.getElementById("restrictions").checked)
+		return [];
+		
+	var extras = [];
 	
-if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0)
-	result.extras.push("Never change into a new disguise.");
+	if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0)
+		extras.push("Never change into a new disguise.");
 
-if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
-	result.extras.push("Do not kill or subdue non-targets.");
+	if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
+		extras.push("Do not kill or subdue non-targets.");
 	
-if (Math.random() < 0.18) 
-	result.extras.push("Do not throw items as distractions.");
+	if (Math.random() < 0.18) 
+		extras.push("Do not throw items as distractions.");
 
-if (Math.random() < 0.25)
-	result.extras.push("Do not use firearms as distractions or to destroy objects.");
+	if (Math.random() < 0.25)
+		extras.push("Do not use firearms as distractions or to destroy objects.");
 
-if (Math.random() < 0.12)
-	result.extras.push("Do not climb.");
+	if (Math.random() < 0.12)
+		extras.push("Do not climb.");
 
-if (Math.random() < 0.05)
-	result.extras.push("Do not crouch.");
+	if (Math.random() < 0.05)
+		extras.push("Do not crouch.");
 	
+	return extras;
 };
 
 //Returns the list of weapons/accidents from which the kill methods are pulled
-function createWeaponList() {
-	var killList = []
+function createWeaponList(container) {
+	var kills = []
 	
-	if (document.getElementById("melee").checked)
-		killList = killList.concat(container.melee);
-			
-	if (document.getElementById("firearm").checked)
-		killList = killList.concat(container.firearms);
+	for( var kill_type in killTypesMap )
+		if (document.getElementById(kill_type).checked)
+			kills = kills.concat(container[killTypesMap[kill_type]]);
 	
-	if (document.getElementById("accident").checked)
-		killList = killList.concat(container.accidents);
-	
-	if (document.getElementById("generic").checked)
-		killList = killList.concat(container.kills);
-	
-	var no_weapons_selected = !(killList.length > 0);
+	var no_weapons_selected = !(kills.length > 0);
 	if (no_weapons_selected)
-		killList.push("No weapons selected!");
+		for(var i = 0; i < 5; ++i)
+			kills.push("No weapons selected!");
 	
-	return killList;
+	// Randomize weapons
+	shuffle(kills);
+	
+	// add Soders-specific kill if relevant
+	var modeIndex = document.getElementById("modeselect");
+	var mode = modeIndex.options[modeIndex.selectedIndex].value;
+	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
+		kills[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
+	
+	return kills;
+};
+
+//Create the disguise list
+//reads the "entry" field in mission_information
+function createDisguiseList(container, mission_information) {
+	var disguises = [];
+	// Remove "Ninja" and "47 in his Suit" from potential disguises
+	// when starting in an undercover location
+	// The first disguise in the list is always the non-undercover one
+	var undercover_start = suitStarts.indexOf(mission_information.entry) === -1;
+	if (undercover_start)
+		container.disguises.splice(0,1);
+	
+	//copy the disguise list, add  " as " to every element, then shuffle it
+	if (document.getElementById("disguise").checked)
+		disguises =
+			container.disguises.slice().map(function(e){ return " as " + e; });
+	else
+		disguises = ["", "", "", "", ""];
+	
+	shuffle(disguises);
+	return disguises;
 };
 
 //Chooses targets and kill methods
-function targetsAndKills() {
+function createTargetList(container) {
+	var targets = [];
+	
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	
-	if (mode == "CONTRACTS") {
-		container.targetList = container.contractTargets;
-		shuffle(container.targetList);
-	}
-	if (mode == "ELUSIVE")
-		container.targetList = ["Elusive Target"];
-	
-	// Copy the target list
-	result.targets = container.targetList.slice();
-	result.num_targets = result.targets.length;
-	// Randomize weapons
-	result.weapons = createWeaponList();
-	shuffle(result.weapons);
-		
 	if (mode == "CONTRACTS") {
 		var targetAmountCheck = Math.random();
 		result.num_targets = 5;
@@ -101,52 +113,47 @@ function targetsAndKills() {
 		if (targetAmountCheck < 0.69) result.num_targets--;
 		if (targetAmountCheck < 0.39) result.num_targets--;
 		if (targetAmountCheck < 0.04) result.num_targets--;
+		
+		shuffle(container.targetList);
+		targets = container.contractTargets.slice(0, num_targets);
+	}
+	else if (mode == "ELUSIVE")
+		targets = ["Elusive Target"];
+	else {
+		// Copy the missions' target list
+		targets = container.targetList.slice();
 	}
 	
-	// Removee "Ninja" and "47 in his Suit" from potential disguises
-	// when starting in an undercover location
-	var undercover_start = suitStarts.indexOf(result.entry) === -1;
-	if (undercover_start)
-		// The first disguise in the list is always the non-undercover one
-		container.disguises.splice(0,1);
-	
-	if (document.getElementById("disguise").checked)  {
-		//copy the disguise list, add  " as " to every element, then shuffle it
-		result.disguises =
-			container.disguises.slice().map(function(e){ return " as " + e; });
-		shuffle(result.disguises);
-	} else
-		result.disguises = ["", "", "", "", ""];
-	
-	// add Soders-specific kill if relevant
-	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(document.getElementById("melee").checked == 0 && document.getElementById("firearm").checked == 0 && document.getElementById("accident").checked == 0 && document.getElementById("generic").checked == 0)) {
-		result.weapons[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
-	}
+	return targets;
 };
 
 //Adds properties from the container object to the result object
-function containerToResult() {
+function containerToResult(container) {
+	var result = {};
 	result.missionTitle = container.missionTitle;
 	result.entry = container.entry[Math.floor(Math.random()*container.entry.length)];
 	result.exit = container.exit[Math.floor(Math.random()*container.exit.length)];
+	return result;
 };
 
 //Makes text appear
-function writeEverything() {
+function writeEverything(result) {
 	document.getElementById("chosenmission").innerHTML = result.missionTitle;
 	document.getElementById("start").innerHTML =
 		"<p class='bluetext'>Start</p>: " + result.entry;
 	
+	var MAX_TARGETS = 5, MAX_EXTRAS = 6;
+	
 	// Write to the HTML elements from the results object
-	for(var i = 0; i < 5; ++i){ // kills
-		if(i < result.num_targets)
+	for(var i = 0; i < MAX_TARGETS; ++i){ // kills
+		if(i < result.targets.length)
 			document.getElementById("kill" + (i+1)).innerHTML = 
 				"<p class='redtext'>" + result.targets[i]
 				+ "</p>: " + result.weapons[i] + result.disguises[i];
 		else
 			document.getElementById("kill" + (i+1)).innerHTML = "";
 	}
-	for(var i = 0; i < 6; ++i){ // extras
+	for(var i = 0; i < MAX_EXTRAS; ++i){ // extras
 		if(i < result.extras.length)
 			document.getElementById("extra" + (i+1)).innerHTML = result.extras[i];
 		else 
@@ -164,16 +171,23 @@ function writeEverything() {
 		document.getElementById("info").innerHTML = "";
 };
 
-//All the things that should happen when you make it go
-function literallyEverything() {
-	clearAll();
-	createContainerObject();
-	containerToResult();
-	targetsAndKills();
-	if(document.getElementById("restrictions").checked)
-		extras();
-	writeEverything();
+function generate_result() {
+	const current_mission = createContainerObject();
+	
+	var roulette = containerToResult(current_mission);
+	roulette.extras = createExtrasList();
+	roulette.targets = createTargetList(current_mission);
+	roulette.weapons = createWeaponList(current_mission);
+	roulette.disguises = createDisguiseList(current_mission, roulette);
+	
+	return roulette;
 };
+
+//All the things that should happen when you make it go
+function button_MakeItGo(){
+	var result = generate_result();
+	writeEverything(result);
+}
 
 //Displays/hides the options
 function showFilters() {
