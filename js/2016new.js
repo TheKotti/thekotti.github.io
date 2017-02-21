@@ -108,11 +108,11 @@ function createTargetList(container) {
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
 	if (mode == "CONTRACTS") {
 		var targetAmountCheck = Math.random();
-		result.num_targets = 5;
-		if (targetAmountCheck < 0.84) result.num_targets--;
-		if (targetAmountCheck < 0.69) result.num_targets--;
-		if (targetAmountCheck < 0.39) result.num_targets--;
-		if (targetAmountCheck < 0.04) result.num_targets--;
+		var num_targets = 5;
+		if (targetAmountCheck < 0.84) num_targets--;
+		if (targetAmountCheck < 0.69) num_targets--;
+		if (targetAmountCheck < 0.39) num_targets--;
+		if (targetAmountCheck < 0.04) num_targets--;
 		
 		shuffle(container.targetList);
 		targets = container.contractTargets.slice(0, num_targets);
