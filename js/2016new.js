@@ -1,5 +1,7 @@
 //Creates the object that will be used as a source for the mission objectives
 function createContainerObject() {
+	container = {};
+	
 	var missionIndex = document.getElementById("missionselect");
 	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
 	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si];
@@ -8,7 +10,6 @@ function createContainerObject() {
 		if (generic.hasOwnProperty(prop))
 			container[prop] = generic[prop];
 	
-	// Javascript scope rules are hilarious 
 	if(mission_name === "RANDOM")
 		var current_mission = randomMissionList[Math.floor(Math.random()*randomMissionList.length)];
 	else
@@ -17,230 +18,226 @@ function createContainerObject() {
 	for (var prop in current_mission)
 		if(current_mission.hasOwnProperty(prop))
 			container[prop] = current_mission[prop];
-};
-
-//Makes sure old results are cleared when new objectives are randomized
-function clearAll() {
-	killList = [];
-	container = {};
-	result = {};
-	document.getElementById("info").innerHTML = "";
-};
-
-//Hides unused html elements that appear in some results
-function removeUndefined() {	
-	if ("undefined" === typeof result.target2) {
-		document.getElementById("kill2").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target3) {
-		document.getElementById("kill3").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target4) {
-		document.getElementById("kill4").innerHTML = "";
-	}
-	if ("undefined" === typeof result.target5) {
-		document.getElementById("kill5").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra1) {
-		document.getElementById("extra1").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra2) {
-		document.getElementById("extra2").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra3) {
-		document.getElementById("extra3").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra4) {
-		document.getElementById("extra4").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra5) {
-		document.getElementById("extra5").innerHTML = "";
-	}
-	if ("undefined" === typeof result.extra6) {
-		document.getElementById("extra6").innerHTML = "";
-	}
-
+	
+	// Create a copy to avoid modifying the originals
+	container.disguises = current_mission.disguises.slice()
+	
+	return container
 };
 
 //Randomizes extra variables for the result
-function extras() {
+function createExtrasList() {
+	if(!document.getElementById("restrictions").checked)
+		return [];
+		
+	var extras = [];
 	
-if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0) {
-	result.extra1 = "Never change into a new disguise.";
-}
+	if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0)
+		extras.push("Never change into a new disguise.");
 
-if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0) {
-	result.extra2 = "Do not kill or subdue non-targets.";
-}
+	if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
+		extras.push("Do not kill or subdue non-targets.");
+	
+	if (Math.random() < 0.18) 
+		extras.push("Do not throw items as distractions.");
 
-if (Math.random() < 0.18) {
-	result.extra3 = "Do not throw items as distractions.";
-}
+	if (Math.random() < 0.25)
+		extras.push("Do not use firearms as distractions or to destroy objects.");
 
-if (Math.random() < 0.25) {
-	result.extra4 = "Do not use firearms as distractions or to destroy objects.";
-}
+	if (Math.random() < 0.12)
+		extras.push("Do not climb.");
 
-if (Math.random() < 0.12) {
-	result.extra5 = "Do not climb.";
-}
-
-if (Math.random() < 0.05) {
-	result.extra6 = "Do not crouch.";
-}
-
+	if (Math.random() < 0.05)
+		extras.push("Do not crouch.");
+	
+	return extras;
 };
 
-//Creates the list of weapons/accidents from which the kill methods are pulled
-function createWeaponList() {
-	if (document.getElementById("melee").checked == 1) {
-		for (i = 0; i < container.melee.length; i++) {
-			killList.push(container.melee[i])
-		}
-	}
-	if (document.getElementById("firearm").checked == 1) {
-		for (i = 0; i < container.firearms.length; i++) {
-			killList.push(container.firearms[i])
-		}
-	}
-	if (document.getElementById("accident").checked == 1) {
-		for (i = 0; i < container.accidents.length; i++) {
-			killList.push(container.accidents[i])
-		}
-	}
-	if (document.getElementById("generic").checked == 1) {
-		for (i = 0; i < container.kills.length; i++) {
-			killList.push(container.kills[i])
-		}
-	}
-	if (document.getElementById("melee").checked == 0 && document.getElementById("firearm").checked == 0 && document.getElementById("accident").checked == 0 && document.getElementById("generic").checked == 0) {
-		killList.push("No weapons selected!");
-	}
-};
-
-function disguisesOn() {
-	var startIndex = suitStarts.indexOf(result.entry);
+//Returns the list of weapons/accidents from which the kill methods are pulled
+function createWeaponList(container) {
+	var kills = []
 	
-	if (result.missionTitle == "Situs Inversus") {
-		if (startIndex == -1 && container.disguises[0] == "Ninja") {
-			container.disguises.splice(0,1);
-		} else if (startIndex >= 0 && container.disguises[0] != "Ninja") {
-			container.disguises.unshift("Ninja");
-		}
-	} else {
-		if (startIndex == -1 && container.disguises[0] == "47 in his Suit") {
-			container.disguises.splice(0,1);
-		} else if (startIndex >= 0 && container.disguises[0] != "47 in his Suit") {
-			container.disguises.unshift("47 in his Suit");
-		}
-	}
-}
-
-//Chooses targets and kill methods
-function targetsAndKills() {
+	for( var kill_type in killTypesMap )
+		if (document.getElementById(kill_type).checked)
+			kills = kills.concat(container[killTypesMap[kill_type]]);
+	
+	var no_weapons_selected = !(kills.length > 0);
+	if (no_weapons_selected)
+		for(var i = 0; i < 5; ++i)
+			kills.push("No weapons selected!");
+	
+	// Randomize weapons
+	shuffle(kills);
+	
+	// add Soders-specific kill if relevant
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	var missionIndex = document.getElementById("missionselect");
-	var mission = missionIndex.options[missionIndex.selectedIndex].value;
+	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
+		kills[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
 	
-	if (mode == "CONTRACTS") {
-		container.targetList = container.contractTargets;
-		shuffle(container.targetList);
-	}
-	if (mode == "ELUSIVE") {
-		container.targetList = ["Elusive Target"];
-	}
+	return kills;
+};
+
+//Create the disguise list
+//reads the "entry" field in mission_information
+function createDisguiseList(container, mission_information) {
+	var disguises = [];
+	// Remove "Ninja" and "47 in his Suit" from potential disguises
+	// when starting in an undercover location
+	// The first disguise in the list is always the non-undercover one
+	var undercover_start = suitStarts.indexOf(mission_information.entry) === -1;
+	if (undercover_start)
+		container.disguises.splice(0,1);
 	
-	result.target1 = container.targetList[0];
-	result.weapon1 = killList[Math.floor(Math.random()*killList.length)];
-	result.target2 = container.targetList[1];
-	result.weapon2 = killList[Math.floor(Math.random()*killList.length)];
-	result.target3 = container.targetList[2];
-	result.weapon3 = killList[Math.floor(Math.random()*killList.length)];
-	result.target4 = container.targetList[3];
-	result.weapon4 = killList[Math.floor(Math.random()*killList.length)];
-	result.target5 = container.targetList[4];
-	result.weapon5 = killList[Math.floor(Math.random()*killList.length)];
-		
+	//copy the disguise list, add  " as " to every element, then shuffle it
+	if (document.getElementById("disguise").checked)
+		disguises =
+			container.disguises.slice().map(function(e){ return " as " + e; });
+	else
+		disguises = ["", "", "", "", ""];
+	
+	shuffle(disguises);
+	return disguises;
+};
+
+//Chooses targets and kill methods
+function createTargetList(container) {
+	var targets = [];
+	
+	var modeIndex = document.getElementById("modeselect");
+	var mode = modeIndex.options[modeIndex.selectedIndex].value;
 	if (mode == "CONTRACTS") {
 		var targetAmountCheck = Math.random();
-		if (targetAmountCheck < 0.84) {
-			result.target5 = undefined;
-		}
-		if (targetAmountCheck < 0.69) {
-			result.target4 = undefined;
-		}
-		if (targetAmountCheck < 0.39) {
-			result.target3 = undefined;
-		}
-		if (targetAmountCheck < 0.04) {
-			result.target2 = undefined;
-		}
+		var num_targets = 5;
+		if (targetAmountCheck < 0.84) num_targets--;
+		if (targetAmountCheck < 0.69) num_targets--;
+		if (targetAmountCheck < 0.39) num_targets--;
+		if (targetAmountCheck < 0.04) num_targets--;
+		
+		shuffle(container.targetList);
+		targets = container.contractTargets.slice(0, num_targets);
+	}
+	else if (mode == "ELUSIVE")
+		targets = ["Elusive Target"];
+	else {
+		// Copy the missions' target list
+		targets = container.targetList.slice();
 	}
 	
-	if (document.getElementById("disguise").checked == 1)  {
-		result.disguise1 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise2 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise3 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise4 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-		result.disguise5 = " as " + container.disguises[Math.floor(Math.random()*container.disguises.length)];
-	} else {
-		result.disguise1 = "";
-		result.disguise2 = "";
-		result.disguise3 = "";
-		result.disguise4 = "";
-		result.disguise5 = "";
-	}
-	
-	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(document.getElementById("melee").checked == 0 && document.getElementById("firearm").checked == 0 && document.getElementById("accident").checked == 0 && document.getElementById("generic").checked == 0)) {
-		result.weapon2 = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
-	}
+	return targets;
 };
 
 //Adds properties from the container object to the result object
-function containerToResult() {
+function containerToResult(container) {
+	var result = {};
 	result.missionTitle = container.missionTitle;
 	result.entry = container.entry[Math.floor(Math.random()*container.entry.length)];
 	result.exit = container.exit[Math.floor(Math.random()*container.exit.length)];
+	return result;
 };
 
 //Makes text appear
-function writeEverything() {
+function writeEverything(result) {
 	document.getElementById("chosenmission").innerHTML = result.missionTitle;
-	document.getElementById("start").innerHTML = "<p class='bluetext'>Start</p>: " + result.entry;
-	document.getElementById("kill1").innerHTML = "<p class='redtext'>" + result.target1 + "</p>: " + result.weapon1 + result.disguise1;
-	document.getElementById("kill2").innerHTML = "<p class='redtext'>" + result.target2 + "</p>: " + result.weapon2 + result.disguise2;
-	document.getElementById("kill3").innerHTML = "<p class='redtext'>" + result.target3 + "</p>: " + result.weapon3 + result.disguise3;
-	document.getElementById("kill4").innerHTML = "<p class='redtext'>" + result.target4 + "</p>: " + result.weapon4 + result.disguise4;
-	document.getElementById("kill5").innerHTML = "<p class='redtext'>" + result.target5 + "</p>: " + result.weapon5 + result.disguise5;
-	document.getElementById("exit").innerHTML = "<p class='bluetext'>Exit</p>: " + result.exit;
-	document.getElementById("extra1").innerHTML = result.extra1;
-	document.getElementById("extra2").innerHTML = result.extra2;
-	document.getElementById("extra3").innerHTML = result.extra3;
-	document.getElementById("extra4").innerHTML = result.extra4;
-	document.getElementById("extra5").innerHTML = result.extra5;
-	document.getElementById("extra6").innerHTML = result.extra6;
+	document.getElementById("start").innerHTML =
+		"<p class='bluetext'>Start</p>: " + result.entry;
+	
+	var MAX_TARGETS = 5, MAX_EXTRAS = 6;
+	
+	// Write to the HTML elements from the results object
+	for(var i = 0; i < MAX_TARGETS; ++i){ // kills
+		if(i < result.targets.length)
+			document.getElementById("kill" + (i+1)).innerHTML = 
+				"<p class='redtext'>" + result.targets[i]
+				+ "</p>: " + result.weapons[i] + result.disguises[i];
+		else
+			document.getElementById("kill" + (i+1)).innerHTML = "";
+	}
+	for(var i = 0; i < MAX_EXTRAS; ++i){ // extras
+		if(i < result.extras.length)
+			document.getElementById("extra" + (i+1)).innerHTML = result.extras[i];
+		else 
+			document.getElementById("extra" + (i+1)).innerHTML = "";
+	}
+	document.getElementById("exit").innerHTML =
+		"<p class='bluetext'>Exit</p>: " + result.exit;
 	
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	if (result.missionTitle == "Freedom Fighters" && mode == "MAIN") {
-		document.getElementById("info").innerHTML = "To gain access to the exits, recreate the mission in Contracts mode."
-	}
+	if (result.missionTitle == "Freedom Fighters" && mode == "MAIN")
+		document.getElementById("info").innerHTML =
+			"To gain access to the exits, recreate the mission in Contracts mode.";
+	else
+		document.getElementById("info").innerHTML = "";
+};
+
+function generate_result() {
+	const current_mission = createContainerObject();
+	
+	var roulette = containerToResult(current_mission);
+	roulette.extras = createExtrasList();
+	roulette.targets = createTargetList(current_mission);
+	roulette.weapons = createWeaponList(current_mission);
+	roulette.disguises = createDisguiseList(current_mission, roulette);
+	
+	return roulette;
 };
 
 //All the things that should happen when you make it go
-function literallyEverything() {
-	clearAll();
-	createContainerObject();
-	createWeaponList();
-	containerToResult();
-	disguisesOn();
-	targetsAndKills();
-	if(document.getElementById("restrictions").checked)
-		extras();
-	writeEverything();
-	removeUndefined();
-};
+function button_MakeItGo(){
+	var result = generate_result();
+	writeEverything(result);
+	history_push(result);
+}
+
+//adds x to the history stack for a maximum of 20 most recent runs
+function history_push(x){
+	redo_stack = [];
+	history_past.push(x);
+	if(history_past.length > 20)
+		history_past.shift();
+	
+	//history exists, enable undo_nappi
+	if(history_past.length > 1)
+		document.getElementById("undo_nappi").disabled = false;
+	// disable redo_nappi
+	document.getElementById("redo_nappi").disabled = true;
+}
+
+
+// undo and redo functions, affect global state
+function history_undo(){
+	if(history_past.length < 2)
+		return;
+	
+	//add the currently displayed result to the redo stack
+	redo_stack.push(history_past.pop());
+	var previous = history_past[history_past.length - 1];
+	writeEverything(previous);
+	
+	// enable redo_nappi
+	document.getElementById("redo_nappi").disabled = false;
+	//history exists, enable undo_nappi
+	if(history_past.length < 2)
+		document.getElementById("undo_nappi").disabled = true;
+}
+
+function history_redo(){
+	if(redo_stack.length < 1)
+		return;
+	
+	history_past.push(redo_stack.pop());
+	var previous = history_past[history_past.length - 1];
+	writeEverything(previous);
+	
+	
+	//history exists, enable undo_nappi
+	if(history_past.length > 1)
+		document.getElementById("undo_nappi").disabled = false;
+	// disable redo_nappi
+	if(redo_stack.length < 1)
+		document.getElementById("redo_nappi").disabled = true;
+}
 
 //Displays/hides the options
 function showFilters() {
@@ -258,7 +255,7 @@ function showFilters() {
 //Shuffles an array
 function shuffle(array) {
   var m = array.length, t, i;
-
+  
   // While there remain elements to shuffle…
   while (m) {
 
