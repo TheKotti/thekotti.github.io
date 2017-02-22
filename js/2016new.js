@@ -114,7 +114,7 @@ function createTargetList(container) {
 		if (targetAmountCheck < 0.39) num_targets--;
 		if (targetAmountCheck < 0.04) num_targets--;
 		
-		shuffle(container.targetList);
+		shuffle(container.contractTargets);
 		targets = container.contractTargets.slice(0, num_targets);
 	}
 	else if (mode == "ELUSIVE")
