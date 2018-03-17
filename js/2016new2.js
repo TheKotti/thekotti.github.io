@@ -133,7 +133,6 @@ var ta = {
 
 var tv = {
 	missionTitle: "The Vector",
-	melee: ["Not Allowed For This Mission"],
 	targetList: ["Bradley Paine"],
 	contractTargets: ["Bradley Paine"],
 	entry: ["Up the Ladder"],
