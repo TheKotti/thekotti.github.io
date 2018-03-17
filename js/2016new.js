@@ -5,6 +5,7 @@ function createContainerObject() {
 	var missionIndex = document.getElementById("missionselect");
 	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
 	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si,ts,ta,tv,pz];
+//The Vector may go missing due to way too many workarounds for dribbleondo to get that mission working properly.
 	
 	for (var prop in generic)
 		if (generic.hasOwnProperty(prop))
@@ -75,8 +76,6 @@ function createWeaponList(container) {
 	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
 		kills[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
 	
-	var modeIndex = document.getElementById("modeselect");
-	var mode = modeIndex.options[modeIndex.selectedIndex].value;
 	if (mode == "MAIN" && container.missionTitle === "The Vector" && !(no_weapons_selected)) 
 		kills[1] = container.paineKills[Math.floor(Math.random()*container.paineKills.length)];
 	
