@@ -2,7 +2,7 @@
 var history_past = []
 var redo_stack = []
 
-var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Up The Ladder","Undercover gear near helipad"];
+var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad"];
 
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
@@ -131,16 +131,17 @@ var ta = {
 	disguises: ["47 in his Suit","Waiter","Craig Black","Brother Akram","The Superfan","Bodyguard"],
 };
 
-var tv = {
-	missionTitle: "The Vector",
-	melee: ["Not Applicable"],
-	targetList: ["Bradley Paine"],
-	contractTargets: ["Bradley Paine"],
-	entry: ["Up the Ladder"],
-	exit: ["Down the Ladder"],
-	paineKills: ["Headshots only","Explosive Accident Kill","Oil Barrel Fire Slick"],
-	disguises: ["47 in his sniping trenchcoat"],
-};
+//var tv = {
+	//missionTitle: "The Vector",
+	//melee: ["Not Applicable"],
+	//targetList: ["Bradley Paine"],
+	//contractTargets: ["Bradley Paine"],
+	//entry: ["Up the Ladder"],
+	//exit: ["Down the Ladder"],
+	//paineKills: ["Headshots only","Explosive Accident Kill","Oil Barrel Fire Slick"],
+	//disguises: ["47 in his sniping trenchcoat"],
+// Vactor committed out due to issues in implemetation
+//};
 
 var pz = {
 	missionTitle: "Patient Zero",
@@ -166,7 +167,7 @@ var mission_names_map = {
 	"SI": si,
         "TS": ts,
 	"TA": ta,
-	"TV": tv,
+      //"TV": tv,
 	"PZ": pz
 }
 
