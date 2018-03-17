@@ -133,11 +133,12 @@ var ta = {
 
 var tv = {
 	missionTitle: "The Vector",
+	melee: ["Not Applicable"],
 	targetList: ["Bradley Paine"],
-	paineKills: ["Headshots only!","Explosive Accident Kill","Oil Barrel Fire Slick"],
 	contractTargets: ["Bradley Paine"],
 	entry: ["Up the Ladder"],
 	exit: ["Down the Ladder"],
+	paineKills: ["Headshots only","Explosive Accident Kill","Oil Barrel Fire Slick"],
 	disguises: ["47 in his sniping trenchcoat"],
 };
 
