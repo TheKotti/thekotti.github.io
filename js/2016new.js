@@ -76,6 +76,10 @@ function createWeaponList(container) {
 	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
 		kills[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
 	
+	return kills;
+	
+	var modeIndex = document.getElementById("modeselect");
+	var mode = modeIndex.options[modeIndex.selectedIndex].value;
 	if (mode == "MAIN" && container.missionTitle === "The Vector" && !(no_weapons_selected)) 
 		kills[1] = container.paineKills[Math.floor(Math.random()*container.paineKills.length)];
 	
