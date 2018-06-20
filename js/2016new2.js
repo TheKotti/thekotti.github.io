@@ -115,7 +115,7 @@ var ts = {
 	missionTitle: "The Source",
 	melee: ["Kitchen Knife","Screwdriver","Fire Axe","Cleaver","Hatchet","Letter Opener","Katana","Fiber Wire","Sapper's Axe"],
 	targetList: ["Oybek Nabazov","Sister Yulduz"],
-	contractTargets: ["Oybek Nabazov","Sister Yulduz"],
+	contractTargets: ["Oybek Nabazov","Sister Yulduz","Robert Egg","Akram","Jeff","Rebecca","Charles Slaughter","Jackie Carrington","Julian","Sam Harrison","Vipada Ahunai","Robert Uppey Jr","Emily Carson","Carl Wiley","Timothy Lace","Leila Tyduk","Louie Pan","Channarong","A-Wut"],
 	entry: ["Riverside Landing"],
 	exit: ["Boat","Tunnel"],
 	disguises: ["47 in his Suit","Exterminator","Groundskeeper","Hotel Security","Hotel Staff","Cult Bodyguard","Kitchen Staff","Waiter","Cult Member"],
