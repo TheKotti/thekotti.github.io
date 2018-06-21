@@ -2,7 +2,7 @@
 var history_past = []
 var redo_stack = []
 
-var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path"];
+var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad"];
 
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
@@ -111,6 +111,49 @@ var si = {
 	disguises: ["Ninja","47 in his Suit","Baseball Player","Bodyguard","Chef","Chief Surgeon","Doctor","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","Motorcyclist","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","VIP Patient (Portman)","Yoga Instructor"]
 };
 
+var ts = {
+	missionTitle: "The Source",
+	melee: ["Kitchen Knife","Screwdriver","Fire Axe","Cleaver","Hatchet","Letter Opener","Katana","Fiber Wire","Sapper's Axe"],
+	targetList: ["Oybek Nabazov","Sister Yulduz"],
+	contractTargets: ["Oybek Nabazov","Sister Yulduz","Robert Egg","Akram","Jeff","Rebecca","Charles Slaughter","Jackie Carrington","Julian","Sam Harrison","Vipada Ahunai","Robert Uppey Jr","Emily Carson","Carl Wiley","Timothy Lace","Leila Tyduk","Louie Pan","Channarong","A-Wut"],
+	entry: ["Riverside Landing"],
+	exit: ["Boat","Tunnel"],
+	disguises: ["47 in his Suit","Exterminator","Groundskeeper","Hotel Security","Hotel Staff","Cult Bodyguard","Kitchen Staff","Waiter","Cult Member"],
+};
+
+var ta = {
+	missionTitle: "The Author",
+	melee: ["Battle Axe","Cleaver","Fire Axe","Knife","Screwdriver","Fiber Wire"],
+	targetList: ["Craig Black","Brother Akram"],
+	contractTargets: ["Craig Black","Brother Akram"],
+	entry: ["The Beach"],
+	exit: ["Town Gate"],
+	disguises: ["47 in his Suit","Waiter","Craig Black","Brother Akram","The Superfan","Bodyguard"],
+};
+
+//var tv = {
+	//missionTitle: "The Vector",
+	//melee: ["Not Applicable"],
+	//targetList: ["Bradley Paine"],
+	//contractTargets: ["Bradley Paine"],
+	//entry: ["Up the Ladder"],
+	//exit: ["Down the Ladder"],
+	//paineKills: ["Headshots only","Explosive Accident Kill","Oil Barrel Fire Slick"],
+	//disguises: ["47 in his sniping trenchcoat"],
+// Vactor committed out due to issues in implemetation
+//};
+
+var pz = {
+	missionTitle: "Patient Zero",
+	melee: ["Fiber Wire","Scalpel","Scissors","Kitchen Knife","Cleaver","Katana","Screwdriver","Fire Axe","Lethal Poison Syringe"],
+	targetList: ["Owen Cage","Klaus Liebleid"],
+	contractTargets: ["Owen Cage","Klaus Liebleid"],
+	entry: ["Undercover gear near helipad"],
+	exit: ["Helicopter","Snowmobile","Hiking Route","Cable Car"],
+	disguises: ["47 in his undercover gear","Baseball Player","Bodyguard","Chef","Chief Surgeon","Doctor","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","Motorcyclist","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","Yoga Instructor"]
+};
+
+
 var mission_names_map = {
 	"TSS" : showstopper,
 	"HH": hh,
@@ -121,7 +164,11 @@ var mission_names_map = {
 	"AHBOS": ahbos,
 	"C27": c27,
 	"FF": ff,
-	"SI": si
+	"SI": si,
+        "TS": ts,
+	"TA": ta,
+      //"TV": tv,
+	"PZ": pz
 }
 
 var killTypesMap = {

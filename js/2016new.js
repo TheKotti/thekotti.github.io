@@ -4,7 +4,8 @@ function createContainerObject() {
 	
 	var missionIndex = document.getElementById("missionselect");
 	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
-	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si];
+	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si,ts,ta,pz];
+//The Vector is missing due to way too many workarounds for dribbleondo to get that mission working properly.
 	
 	for (var prop in generic)
 		if (generic.hasOwnProperty(prop))
@@ -69,7 +70,7 @@ function createWeaponList(container) {
 	// Randomize weapons
 	shuffle(kills);
 	
-	// add Soders-specific kill if relevant
+	// add Soders-specific kill if relevant. Tried to do the same for Bradley Paine, with no luck =/
 	var modeIndex = document.getElementById("modeselect");
 	var mode = modeIndex.options[modeIndex.selectedIndex].value;
 	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
