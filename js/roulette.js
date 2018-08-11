@@ -1,3 +1,7 @@
+/*
+This is the first thing I ever programmed and it shows
+*/
+
 function clearAll() {
 	document.getElementById("mainresult").innerHTML = ("");
 	document.getElementById("extra1").innerHTML = ("");
@@ -151,7 +155,7 @@ if (Math.random() <= 0.49) {
 	targetsAVY.unshift("Don Fernando");
 };
 
-document.getElementById("mainresult").innerHTML = ("Start by heading " + entryAVY[Math.floor(Math.random()*entryAVY.length)].fontcolor("red") + " and kill the targets in the following order using the following methods:<br><br>" + targetsAVY[0] + ": " + killAVY[Math.floor(Math.random()*killAVY.length)].fontcolor("red") + "<br>" + 
+document.getElementById("mainresult").innerHTML = ("Start by heading " + entryAVY[Math.floor(Math.random()*entryAVY.length)].fontcolor("red") + " and kill the targets using the following methods:<br><br>" + targetsAVY[0] + ": " + killAVY[Math.floor(Math.random()*killAVY.length)].fontcolor("red") + "<br>" + 
 targetsAVY[1] + ": " + killAVY[Math.floor(Math.random()*killAVY.length)].fontcolor("red") + 
 "<br><br>Exit using the " + exitAVY[Math.floor(Math.random()*exitAVY.length)].fontcolor("red") + ".")
 
@@ -188,7 +192,7 @@ var entryFL = ["second floor","front door","security station","gym"];
 var targetsFL = shuffle(["<br>Red target".fontcolor("red"),"<br><span id='blue'>Blue target</span>".fontcolor("blue"),"<br><span id='green'>Green target</span>".fontcolor("green")]);
 
 document.getElementById("mainresult").innerHTML = ("Enter through the " + entryFL[Math.floor(Math.random()*entryFL.length)].fontcolor("red") + 
-".<br><br>Kill the targets in the following order, using the following methods:<br>" + 
+".<br><br>Kill the targets using the following methods:<br>" + 
 targetsFL[0] + ": " + killFL[Math.floor(Math.random()*killFL.length)] + 
 targetsFL[1] + ": " + killFL[Math.floor(Math.random()*killFL.length)] + 
 targetsFL[2] + ": " + killFL[Math.floor(Math.random()*killFL.length)]);
@@ -232,7 +236,7 @@ while (targetsTMOC[0] === "Raymond") {
 	shuffle(targetsTMOC);
 };
 
-document.getElementById("mainresult").innerHTML = ("Kill the targets in the following order with the following methods:<br><br>" + 
+document.getElementById("mainresult").innerHTML = ("Kill the targets using the following methods:<br><br>" + 
 targetsTMOC[0] + ": " + killTMOC[Math.floor(Math.random()*killTMOC.length)].fontcolor("red") + "<br>" + 
 targetsTMOC[1] + ": " + killTMOC[Math.floor(Math.random()*killTMOC.length)].fontcolor("red") + "<br>" + 
 targetsTMOC[2] + ": " + killTMOC[Math.floor(Math.random()*killTMOC.length)].fontcolor("red"));
@@ -270,7 +274,7 @@ if (Math.random() <= 0.69) {
 
 document.getElementById("mainresult").innerHTML = ("When going up, use the " + entryYBWO[Math.floor(Math.random()*entryYBWO.length)].fontcolor("red") + 
 " to reach the main floor and the " + topFloor[Math.floor(Math.random()*topFloor.length)].fontcolor("red") + 
-" to reach the top floor. <br>Kill the targets in the following order, using the following methods:<br><br>" + 
+" to reach the top floor. <br>Kill the targets using the following methods:<br><br>" + 
 targetsYBWO[0] + ": " + killYBWO[Math.floor(Math.random()*killYBWO.length)].fontcolor("red") + "<br>" + 
 targetsYBWO[1] + ": " + killYBWO[Math.floor(Math.random()*killYBWO.length)].fontcolor("red") + 
 "<br><br>Exit using the " + exitYBWO.fontcolor("red"));
@@ -325,7 +329,7 @@ if (Math.random() <= 0.49) {
 };
 
 document.getElementById("mainresult").innerHTML = ("Enter through the " + entryTDDUP[Math.floor(Math.random()*entryTDDUP.length)].fontcolor("red") +
-" and kill the targets in the following order, using the following methods:<br><br>" + 
+" and kill the targets using the following methods:<br><br>" + 
 targetsTDDUP[0] + ": " + killTDDUP[Math.floor(Math.random()*killTDDUP.length)].fontcolor("red") + "<br>" + 
 targetsTDDUP[1] + ": " + killTDDUP[Math.floor(Math.random()*killTDDUP.length)].fontcolor("red") + "<br><br>Exit using " + 
 exitTDDUP[Math.floor(Math.random()*exitTDDUP.length)].fontcolor("red") + ".")
@@ -343,7 +347,7 @@ document.getElementById("chosenmission").innerHTML = ("A House of Cards")
 var killAHOC = ["Fiber wire","RU-AP mine","Gun","Gravity"];
 var targetsAHOC = shuffle(["Schmutz","The sheikh","The scientist"]);
 
-document.getElementById("mainresult").innerHTML = ("Kill the targets in the following order with the following methods:<br><br>" + 
+document.getElementById("mainresult").innerHTML = ("Kill the targets using the following methods:<br><br>" + 
 targetsAHOC[0] + ": " + killAHOC[Math.floor(Math.random()*killAHOC.length)].fontcolor("red") + "<br>" + 
 targetsAHOC[1] + ": " + killAHOC[Math.floor(Math.random()*killAHOC.length)].fontcolor("red") + "<br>" + 
 targetsAHOC[2] + ": " + killAHOC[Math.floor(Math.random()*killAHOC.length)].fontcolor("red"));
@@ -362,7 +366,7 @@ var danceStart = ["Heaven party","Hell party"]
 var danceKill = ["Fiber wire","RU-AP mine","Gun","Accidents","Meat Cleaver","Stiletto","Cane sword","Dragunov Sniper"]
 
 document.getElementById("mainresult").innerHTML = ("Visit the " + danceStart[Math.floor(Math.random()*danceStart.length)].fontcolor("red") + 
-" first and kill the targets using the following weapons.<br>The order of kills is free unless otherwise specified.<br><br>Martinez: " + 
+" first and kill the targets using the following weapons.<br><br>Martinez: " + 
 danceKill[Math.floor(Math.random()*danceKill.length)].fontcolor("red") +
 "<br>Vaana: " + danceKill[Math.floor(Math.random()*danceKill.length)].fontcolor("red") +
 "<br>Maynard John: " + danceKill[Math.floor(Math.random()*danceKill.length)].fontcolor("red") +
@@ -390,7 +394,7 @@ if (Math.random() <= 0.79) {
 };
 
 document.getElementById("mainresult").innerHTML = ("When going to the main building, use " + firstHalf[Math.floor(Math.random()*firstHalf.length)].fontcolor("red") + 
-" and when going to the West Wing, use " + secondHalf[Math.floor(Math.random()*secondHalf.length)].fontcolor("red") + "<br>Kill the targets in the following order, using the following methods:<br><br>" + 
+" and when going to the West Wing, use " + secondHalf[Math.floor(Math.random()*secondHalf.length)].fontcolor("red") + "<br>Kill the targets using the following methods:<br><br>" + 
 targetsAXXV[0] + ": " + killAXXV[Math.floor(Math.random()*killAXXV.length)].fontcolor("red") + "<br>" + 
 targetsAXXV[1] + ": " + killAXXV[Math.floor(Math.random()*killAXXV.length)].fontcolor("red") + 
 "<br><br>When returning to the main building, use " + secondHalf[Math.floor(Math.random()*secondHalf.length)].fontcolor("red") + 
@@ -408,113 +412,3 @@ if (Math.random() <= 0.10) {
 };
 
 };
-
-//oh god what this was a terrible idea
-//If I am to continue making difficulty estimates, it's not gonna be using this method
-/*
-function difficultyCalc() {
-
-var totalValue = 0;
-var missionNumber = (document.getElementById("missionselect").selectedIndex);
-var mission = (document.getElementsByTagName("option")[missionNumber].value);
-var mainObjective = (document.getElementById("mainresult").textContent);
-var shot = (document.getElementById("getshotextra").textContent);
-var dist = (document.getElementById("distractionsextra").textContent);
-var KO = (document.getElementById("knockoutsextra").textContent);
-var SO = (document.getElementById("suitonlyextra").textContent);
-
-//ANL
-if (document.getElementById("chosenmission").textContent === "A New Life") {
-	var wife = (document.getElementById("extra1").textContent);
-	//kills
-	if (mainObjective.toLowerCase().indexOf("kitchen knife") >= 0) {
-		totalValue += 1.0;
-	} else if (mainObjective.toLowerCase().indexOf("fiber wire") >= 0) {
-		totalValue += 1.0;
-	} else if (mainObjective.toLowerCase().indexOf("nailer") >= 0) {
-		totalValue += 2.5;
-	} else if (mainObjective.toLowerCase().indexOf("ru-ap mine") >= 0) {
-		totalValue += 2.5;
-	} else if (mainObjective.toLowerCase().indexOf("baseball bat") >= 0) {
-		totalValue += 3;
-	} else if (mainObjective.toLowerCase().indexOf("the gun") >= 0) {
-		totalValue += 0.5;
-	} else if (mainObjective.toLowerCase().indexOf("glass ceiling") >= 0) {
-		totalValue += 2.5;
-	} else if (mainObjective.toLowerCase().indexOf("the car") >= 0) {
-		totalValue += 3;
-	} else if (mainObjective.toLowerCase().indexOf("gravity") >= 0) {
-		totalValue += 3.5;
-	} else if (mainObjective.toLowerCase().indexOf("swimming pool") >= 0) {
-		totalValue += 3;
-	} else if (mainObjective.toLowerCase().indexOf("hedge cutter") >= 0) {
-		totalValue += 4.5;
-	}
-	//entrances
-	if (mainObjective.toLowerCase().indexOf("enter through the garage") >= 0) {
-		totalValue += 0;
-	} else if (mainObjective.toLowerCase().indexOf("enter through the front") >= 0) {
-		totalValue += 0;
-	} else if (mainObjective.toLowerCase().indexOf("basement") >= 0) {
-		totalValue += 0;
-	} else if (mainObjective.toLowerCase().indexOf("backyard") >= 0) {
-		totalValue += 1.5;
-	}
-	//exits
-	if (mainObjective.toLowerCase().indexOf("exit through the garage") >= 0) {
-		totalValue += 0;
-	} else if (mainObjective.toLowerCase().indexOf("exit through the front") >= 0) {
-		totalValue += 0.5;
-	}
-	//extras
-	if (wife.toLowerCase().indexOf("wife") >= 0) {
-		totalValue += 3.0;
-	}
-	if (shot.toLowerCase().indexOf("shot") >= 0) {
-		totalValue += 1;
-	}
-	if (dist.toLowerCase().indexOf("dist") >= 0) {
-		totalValue += 1.0;
-	}
-	if (KO.toLowerCase().indexOf("knock") >= 0) {
-		totalValue += 1.5;
-	}
-	if (SO.toLowerCase().indexOf("disg") >= 0) {
-		totalValue += 0.5;
-	}
-	//special
-	if ((wife.toLowerCase().indexOf("wife") >= 0) && (mainObjective.toLowerCase().indexOf("backyard") >= 0)) {
-		totalValue += 4.0;
-	};
-	if ((mainObjective.toLowerCase().indexOf("the car") >= 0) && (mainObjective.toLowerCase().indexOf("exit through the front") >= 0)) {
-		totalValue += 4.5;
-	};
-	if ((mainObjective.toLowerCase().indexOf("exit through the front") >= 0) && (shot.toLowerCase().indexOf("shot") >= 0)) {
-		totalValue += 3.5;
-	};
-	if ((mainObjective.toLowerCase().indexOf("exit through the front") >= 0) && (shot.toLowerCase().indexOf("shot") >= 0) && (SO.toLowerCase().indexOf("disg") >= 0)) {
-		totalValue += 1.5;
-	};
-	if ((mainObjective.toLowerCase().indexOf("exit through the front") >= 0) && (shot.toLowerCase().indexOf("shot") >= 0) && (SO.toLowerCase().indexOf("disg") >= 0) && (dist.toLowerCase().indexOf("dist") >= 0)) {
-		totalValue += 3.5;
-	};
-	if ((mainObjective.toLowerCase().indexOf("exit through the front") >= 0) && (shot.toLowerCase().indexOf("shot") >= 0) && (SO.toLowerCase().indexOf("disg") >= 0) && (dist.toLowerCase().indexOf("dist") >= 0) && (KO.toLowerCase().indexOf("knock") >= 0)){
-		totalValue += 5.0;
-	};
-}
-
-
-
-if (totalValue === 0) {
-	document.getElementById("difficulty").innerHTML = ("");
-} else {
-	document.getElementById("difficulty").innerHTML = ("Estimated difficulty: " + totalValue.toFixed(1));
-}
-};
-*/
-
-
-
-
-
-
