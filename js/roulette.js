@@ -167,7 +167,7 @@ document.getElementById("chosenmission").innerHTML = ("Curtains Down")
 var entryCD = ["left and down the stairs","through the opera hall","right of the hall and down the stairs"];
 var killCD = ["Fiber wire","RU-AP Mine","Gun","Gravity","Falling object","Hammer","Screwdriver","Real WWI pistol"];
 
-document.getElementById("mainresult").innerHTML = ("Start by heading " + entryCD[Math.floor(Math.random()*entryCD.length)].fontcolor("red") + " and kill the targets using the following methods. <br>The order of kills is free unless otherwise specified." + 
+document.getElementById("mainresult").innerHTML = ("Start by heading " + entryCD[Math.floor(Math.random()*entryCD.length)].fontcolor("red") + " and kill the targets using the following methods." + 
 "<br><br>D'Alvade: " + killCD[Math.floor(Math.random()*killCD.length)].fontcolor("red") + 
 "<br>Delahunt: " + killCD[Math.floor(Math.random()*killCD.length)].fontcolor("red"));
 
