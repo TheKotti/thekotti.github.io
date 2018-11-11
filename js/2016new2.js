@@ -116,7 +116,7 @@ var ts = {
 	melee: ["Kitchen Knife","Screwdriver","Fire Axe","Cleaver","Hatchet","Letter Opener","Katana","Fiber Wire","Sapper's Axe"],
 	targetList: ["Oybek Nabazov","Sister Yulduz"],
 	contractTargets: ["Oybek Nabazov","Sister Yulduz","Robert Egg","Akram","Jeff","Rebecca","Charles Slaughter","Jackie Carrington","Julian","Sam Harrison","Vipada Ahunai","Robert Uppey Jr","Emily Carson","Carl Wiley","Timothy Lace","Leila Tyduk","Louie Pan","Channarong","A-Wut"],
-	entry: ["Riverside Landing"],
+	entry: ["Hotel Front Terrace"],
 	exit: ["Boat","Tunnel"],
 	disguises: ["47 in his Suit","Exterminator","Groundskeeper","Hotel Security","Hotel Staff","Cult Bodyguard","Kitchen Staff","Waiter","Cult Member"],
 };
@@ -126,7 +126,7 @@ var ta = {
 	melee: ["Battle Axe","Cleaver","Fire Axe","Knife","Screwdriver","Fiber Wire"],
 	targetList: ["Craig Black","Brother Akram"],
 	contractTargets: ["Craig Black","Brother Akram"],
-	entry: ["The Beach"],
+	entry: ["Portico"],
 	exit: ["Town Gate"],
 	disguises: ["47 in his Suit","Waiter","Craig Black","Brother Akram","The Superfan","Bodyguard"],
 };
@@ -145,12 +145,12 @@ var ta = {
 
 var pz = {
 	missionTitle: "Patient Zero",
-	melee: ["Fiber Wire","Scalpel","Scissors","Kitchen Knife","Cleaver","Katana","Screwdriver","Fire Axe","Lethal Poison Syringe"],
+	melee: ["Fiber Wire","Scalpel","Scissors","Kitchen Knife","Cleaver","Katana","Screwdriver","Fire Axe"],
 	targetList: ["Owen Cage","Klaus Liebleid"],
 	contractTargets: ["Owen Cage","Klaus Liebleid"],
-	entry: ["Undercover gear near helipad"],
-	exit: ["Helicopter","Snowmobile","Hiking Route","Cable Car"],
-	disguises: ["47 in his undercover gear","Baseball Player","Bodyguard","Chef","Chief Surgeon","Doctor","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","Motorcyclist","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","Yoga Instructor"]
+	entry: ["Infiltrating below the helipad"],
+	exit: ["Snowmobile","Hiking Route","Cable Car"],
+	disguises: ["47 in his Suit","Bodyguard","Chef","Bio Suit","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","VIP Patient","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","Yoga Instructor"]
 };
 
 
@@ -165,7 +165,7 @@ var mission_names_map = {
 	"C27": c27,
 	"FF": ff,
 	"SI": si,
-        "TS": ts,
+    "TS": ts,
 	"TA": ta,
       //"TV": tv,
 	"PZ": pz
