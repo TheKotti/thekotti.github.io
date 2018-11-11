@@ -8,12 +8,13 @@ var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
 	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"],
-};
-
-var sequelweapons = {
-	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018.
 	H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
 };
+
+//var sequelweapons = {
+	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018.
+	//H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
+//};
 
 var showstopper = {
 	missionTitle: "The Showstopper",
