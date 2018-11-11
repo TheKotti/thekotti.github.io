@@ -10,7 +10,7 @@ var generic = {
 	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"],
 };
 
-var generic = {
+var sequelweapons = {
 	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018.
 	H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
 };
@@ -181,5 +181,5 @@ var killTypesMap = {
 	"firearm": "firearms",
 	"accident": "accidents",
 	"generic": "kills",
-	"precursorweapons": "H2Weapons"
+	"sequelweapons": "H2Weapons"
 }
