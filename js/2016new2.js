@@ -10,6 +10,11 @@ var generic = {
 	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"],
 };
 
+var generic = {
+	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018.
+	H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
+};
+
 var showstopper = {
 	missionTitle: "The Showstopper",
 	melee: ["Screwdriver","Letter Opener","Scissors","Kitchen Knife","Fiber Wire","Fire Axe","Battle Axe","Saber","Hatchet"],
@@ -165,7 +170,7 @@ var mission_names_map = {
 	"C27": c27,
 	"FF": ff,
 	"SI": si,
-    "TS": ts,
+        "TS": ts,
 	"TA": ta,
       //"TV": tv,
 	"PZ": pz
@@ -175,5 +180,6 @@ var killTypesMap = {
 	"melee": "melee",
 	"firearm": "firearms",
 	"accident": "accidents",
-	"generic": "kills"
+	"generic": "kills",
+	"precursorweapons": "H2Weapons"
 }
