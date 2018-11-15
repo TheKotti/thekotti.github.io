@@ -4,17 +4,13 @@ var redo_stack = []
 
 var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad"];
 
+	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018, so the weapons list may be incomplete
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
 	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"],
-	H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
+	H2Weapons: ["Fragmentation Grenade","Fish","RFID Triggered Explosive","ICA Proximity Taser","Explosive Baseball","ICA Tripwire Mine"],
 };
-
-//var sequelweapons = {
-	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018.
-	//H2Weapons: ["Explosive Pen","Frangmentation Grenade","Blackballer"],
-//};
 
 var showstopper = {
 	missionTitle: "The Showstopper",
