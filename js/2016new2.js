@@ -8,8 +8,7 @@ var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Unde
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
-	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"],
-	H2Weapons: ["Fragmentation Grenade","Fish","RFID Triggered Explosive","ICA Proximity Taser","Explosive Baseball","ICA Tripwire Mine"],
+	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"]
 };
 
 var showstopper = {
@@ -169,7 +168,6 @@ var mission_names_map = {
 	"SI": si,
         "TS": ts,
 	"TA": ta,
-      //"TV": tv,
 	"PZ": pz
 }
 
@@ -177,6 +175,5 @@ var killTypesMap = {
 	"melee": "melee",
 	"firearm": "firearms",
 	"accident": "accidents",
-	"generic": "kills",
-	"sequelweapons": "H2Weapons"
+	"generic": "kills"
 }
