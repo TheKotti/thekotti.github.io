@@ -76,12 +76,6 @@ function createWeaponList(container) {
 	if (mode == "MAIN" && container.missionTitle === "Situs Inversus" && !(no_weapons_selected)) 
 		kills[1] = container.sodersKills[Math.floor(Math.random()*container.sodersKills.length)];
 	
-	//add Hitman 2 weapons to Hitman 2016
-	var modeIndex = document.getElementById("modeselect");
-	var mode = modeIndex.options[modeIndex.selectedIndex].value;
-	if (mode == "MAIN" && !(no_weapons_selected)) 
-		kills[1] = container.H2Weapons[Math.floor(Math.random()*container.H2Weapons.length)];
-	
 	return kills;
 };
 
