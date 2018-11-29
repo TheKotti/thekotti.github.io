@@ -2,9 +2,8 @@
 var history_past = []
 var redo_stack = []
 
-var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad"];
+var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad","Event Entrance","Dolphin Fountain","Marina","Stands","Village Bus Stop","Village Hostel","Shaman's Hut","Village Bar","Main Street","Train","Boat","Skywalk","Taxi","Chawls","Whittleton Creek","Harbor","Chapel","Keep"];
 
-	//this section is a WIP. I don't have HITMAN 2: Still no Subtitle until Christmas 2018, so the weapons list may be incomplete
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
@@ -132,18 +131,6 @@ var ta = {
 	disguises: ["47 in his Suit","Waiter","Craig Black","Brother Akram","The Superfan","Bodyguard"],
 };
 
-//var tv = {
-	//missionTitle: "The Vector",
-	//melee: ["Not Applicable"],
-	//targetList: ["Bradley Paine"],
-	//contractTargets: ["Bradley Paine"],
-	//entry: ["Up the Ladder"],
-	//exit: ["Down the Ladder"],
-	//paineKills: ["Headshots only","Explosive Accident Kill","Oil Barrel Fire Slick"],
-	//disguises: ["47 in his sniping trenchcoat"],
-// Vactor committed out due to issues in implemetation
-//};
-
 var pz = {
 	missionTitle: "Patient Zero",
 	melee: ["Fiber Wire","Scalpel","Scissors","Kitchen Knife","Cleaver","Katana","Screwdriver","Fire Axe"],
@@ -154,6 +141,55 @@ var pz = {
 	disguises: ["47 in his Suit","Bodyguard","Chef","Bio Suit","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","VIP Patient","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","Yoga Instructor"]
 };
 
+var tfl = {
+	missionTitle: "The Finish Line",
+	melee: ["Fiber Wire", "Amputation Knife", "Battleaxe", "Cleaver", "Kitchen Knife", "Scissors", "Screwdriver", "Starfish", "Fire Axe", "Old Axe"],
+	targetList: ["Robert Knox", "Sierra Knox"],
+	contractTargets: ["Robert Knox", "Sierra Knox"],
+	entry: ["Event Entrance","Dolphin Fountain","Marina","Stands","Food Stand","Overpass","Driver's Lounge","Podium","Medical Area","Kronstadt Bayside Center","Kowoon Pit"],
+	exit: ["Helicopter", "Main Gate","Sewer","Speedboat","Ambulance"],
+	disguises: ["47 in his Suit","Aeon Driver","Aeon Mechanic","Event Crew","Event Security","Florida Man","Food Vendor","Journalist","Kitchen Staff","Kowoon Driver","Kowoon Mechanic","Kronstadt Engineer","Kronstadt Researcher","Kronstadt Security","Mascot","Medic","Moses Lee","Pale Rider","Photographer","Race Coordinator","Race Marshall","Sheik","Sotteraneo Mechanic","Street Musician","Ted Mendez","Thwack Driver","Waiter","Blue Seed Driver","Kronstadt Driver","Kronstadt Mechanic"]
+};
+
+var ths = {
+	missionTitle: "Three-headed Serpent",
+	melee: ["Fiber Wire","Screwdriver","Kitchen Knife","Cleaver","Scissors","Barber Razor","Letter Opener","Machete"],
+	targetList: ["Rico Delgado", "Andrea Martinez","Jorge Franco"],
+	contractTargets: ["Rico Delgado", "Andrea Martinez","Jorge Franco"],
+	entry: ["Village Bus Stop","Village Hostel","Shaman's Hut","Village Bar","Construction Site","Coca Fields","Submarine Cave","Mansions Basement"],
+	exit: ["Sports Car", "Helicopter","Speedboat","Local's Car","Motorbike","Bus"],
+	disguises: ["47 in his Suit","Drummer","Hippo Whisperer","Shaman","Submarine Crew","Submarine Engineer","Tattoo Artist","Coca Field Worker","Construction Worker","Mansion Staff","Mansion Guard","Coca Field Guard","Elite Guard","Street Soldier","Hippie","Barman","Gardener","Chef"]
+};
+
+var cag = {
+	missionTitle: "Chasing a Ghost",
+	melee: ["Fiber Wire","Beak Axe","Old Axe","Scissors","Measuring Tape","Amputation Knife","Screwdriver","Barber Razor","Cleaver","Folding Knife","Letter Opener","Kitchen Knife","Saber","Fire Axe"],
+	targetList: ["The Maelstrom","Dawood Rangan","Vanya Shah"],
+	contractTargets: ["The Maelstrom","Dawood Rangan","Vanya Shah"],
+	entry: ["Main Street","Train","Boat","Skywalk","Taxi","Chawls","Laundry","Barge","Slums","Metal Forge","Photo Shoot","Hill","Train Yard"],
+	exit: ["Boat","Street","Taxi","Train","Crows' Hideout"],
+	disguises: ["47 in his Suit","Local Security","Food Vendor","Thug","Elite Thug","Metal Worker","Tailor","Queen's Guard","Vanya's Servant","Queen's Bodyguard","Laundry Worker","Laundry Foreman","Dancer","Holy Man","Lead Actor","Kashmirian","Barber","Bollywood Crew","Bollywood Bodyguard","Painter"]
+};
+
+var al = {
+	missionTitle: "Another Life",
+	melee: ["Fiber Wire","Old Axe","Kitchen Knife","Screwdriver","Scissors","Letter Opener","Fire Axe","Hatchet"],
+	targetList: ["Janus","Nolan Cassidy"],
+	contractTargets: ["Janus","Nolan Cassidy"],
+	entry: ["Whittleton Creek","Construction Area","Fumigation","Garbage Removal","Suburb Sign","BBQ Party"],
+	exit: ["Bus", "Raft","Sewer","Construction Van","Trash Truck","Roadwork Gate"],
+	disguises: ["47 in his Suit","Exterminator","Politician","Real Estate Broker","Nurse","Arkian Robe","Janus' Bodyguard","Cassidy Bodyguard","Police Debuty","Construction Crew","Politician's Assistant","Server","Garbage Man","Spencer 'The Hammer' Green","BBQ Owner","Mailman","Gunther Mueller","Gardener","James Batty","Plumber"]
+};
+
+var tas = {
+	missionTitle: "The Ark Society",
+	melee: ["Fiber Wire","Battleaxe","Broadsword","Saber","Old Axe","Katana","Burial Dagger","Circumcision Knife","Screwdriver","Sapper's Axe","Cleaver","Scalpel","Hatchet","Viking Axe","Aztec Necklace","Scissors"],
+	targetList: ["Zoe Washington","Sophia Washington"],
+	contractTargets: ["Zoe Washington","Sophia Washington"],
+	entry: ["Harbor","Chapel","Keep","Reception Area","Kitchens","Warehouse","Gallery","Architects' Lounge"],
+	exit: ["Rooftop","Helicopter","Boat","Warehouse","Castle Wall"],
+	disguises: ["47 in his Suit","Initiate","Ark Member","Architect","Jebediah Block","Burial Robes","Knight","Event Staff","Chef","Custodian","Raider","Elite Guard","Musician","Blake Nathaniel","Entertainer","Butler","Castle Staff","Master of Ceremonies"]
+};
 
 var mission_names_map = {
 	"TSS" : showstopper,
@@ -166,9 +202,14 @@ var mission_names_map = {
 	"C27": c27,
 	"FF": ff,
 	"SI": si,
-        "TS": ts,
+    "TS": ts,
 	"TA": ta,
-	"PZ": pz
+	"PZ": pz,
+	"TFL": tfl,
+	"THS": ths,
+	"CAG": cag,
+	"AL": al,
+	"TAS": tas
 }
 
 var killTypesMap = {
