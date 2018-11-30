@@ -6,7 +6,7 @@ var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Unde
 
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
-	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
+	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Shotgun"],
 	accidents: ["Drowning","Falling Object","Fall","Fire","Electricity","Explosion (Accident)"]
 };
 
