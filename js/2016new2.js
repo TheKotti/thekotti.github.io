@@ -47,7 +47,7 @@ var icon = {
 	contractTargets: ["Dino Bosco","Palmiro Russo","Enrico Nucci","Sophia Wilde","Giuseppe Monaldo","Amaranto 'Tony' Mazzi"],
 	entry: ["City gates"],
 	exit: ["Town Gate","Bosco's Car"],
-	disguises: ["47 in his Suit","Kitchen Assistant","Moview Crew","Security Officer","SFX Crew"],
+	disguises: ["47 in his Suit","Kitchen Assistant","Movie Crew","Security Officer","SFX Crew"],
 };
 
 var landslide = {
@@ -107,7 +107,7 @@ var si = {
 	contractTargets: ["Yuki Yamazaki","Lowell Aucoin","Toshimi 'Sandā no ashi' Kaneko","Amos Dexter","Akira Nakamura","Jason Portman","J. Brooke","Nicholas Laurent","Nails","Kimiho Ookawa","Katashi Ito","Tomiyuki Fujihara"],
 	entry: ["Tobias Rieper's Suite","Spa","Infiltrating Along the Mountain Path","Restaurant","Undercover in the Staff Quarters","Undercover in the Kitchen","Undercover in the Garden","Morgue","Undercover in the Operating Theater"],
 	exit: ["Helicopter","Snowmobile","Hiking Route","Cable Car"],
-	sodersKills: ["Throw the Heart into the Trash Can","Shoot the Heart","Electricution","Pistol","Large Firearm","Explosion","Poison the Stem Cells","Fail the Surgery","Make the Surgeon Fail the Surgery","Robot Arms"],
+	sodersKills: ["Throw the Heart into the Trash Can","Shoot the Heart","Electrocution","Pistol","Large Firearm","Explosion","Poison the Stem Cells","Fail the Surgery","Make the Surgeon Fail the Surgery","Robot Arms"],
 	disguises: ["Ninja","47 in his Suit","Baseball Player","Bodyguard","Chef","Chief Surgeon","Doctor","Handyman","Helicopter Pilot","Hospital Director","Morgue Doctor","Motorcyclist","Patient","Resort Security","Resort Staff","Surgeon","VIP Patient (Dexter)","VIP Patient (Portman)","Yoga Instructor"]
 };
 
