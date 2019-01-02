@@ -43,7 +43,6 @@
 						<option value="CONTRACTS">Contracts mode</option>
 						<option value="ELUSIVE">Elusive target</option>
 					</select>
-					<a id="contractinfonappi" href="roulettemini.html"  onclick="window.open('contracts.html', 'newwindow', 'width=450, height=600'); return false;">(Contracts mode info)</a>
 					<br>
 					<input type="checkbox" id="disguise" value="true" checked>
 					<div class="tooltip"><label for="disguise">Specific disguises</label><span class="tooltiptext">Adds a random disguise requirement for each kill.</span></div>
@@ -94,6 +93,10 @@
 					} else if (theme.href.match = "css/minidark.css") {
 						theme.href = "css/mini.css";
 					}
+					var section = document.getElementById('filters');
+					var nappi = document.getElementById('filterbutton');
+					section.style.display = "block"
+					nappi.innerHTML = "Hide options";
 				}
 				</script>
 
