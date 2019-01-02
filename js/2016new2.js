@@ -4,6 +4,8 @@ var redo_stack = []
 
 var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Undercover at IAGO Auction","Main Square","ICA Safe House","Harbor","Sapienza Ruins","Main Square Tower","Church Morgue","City gates","Promenade","Bazaar Entrance","Lamp Store Rooftop","School Alley","Consulate Parking Garage","Consulate plaza","Riverside Landing","47's Suite","West Bridge","Old Orchard","Southern Farm Perimeter","Water Tower","Infiltrating Along the Mountain Path","Riverside Landing","The Beach","Undercover gear near helipad","Event Entrance","Dolphin Fountain","Marina","Stands","Village Bus Stop","Village Hostel","Shaman's Hut","Village Bar","Main Street","Train","Boat","Skywalk","Taxi","Chawls","Whittleton Creek","Harbor","Chapel","Keep"];
 
+var disguiseExits = ["Ambulance", "Trash Truck"];
+
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],

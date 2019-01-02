@@ -27,13 +27,15 @@ function createContainerObject() {
 };
 
 //Randomizes extra variables for the result
-function createExtrasList() {
+function createExtrasList(exit) {
 	if(!document.getElementById("restrictions").checked)
 		return [];
 		
 	var extras = [];
 	
-	if (Math.random() < 0.12 && document.getElementById("disguise").checked == 0)
+	if (Math.random() < 1.12
+		&& document.getElementById("disguise").checked == 0
+		&& !disguiseExits.includes(exit))
 		extras.push("Never change into a new disguise.");
 
 	if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
@@ -176,7 +178,7 @@ function generate_result() {
 	const current_mission = createContainerObject();
 	
 	var roulette = containerToResult(current_mission);
-	roulette.extras = createExtrasList();
+	roulette.extras = createExtrasList(roulette.exit);
 	roulette.targets = createTargetList(current_mission);
 	roulette.weapons = createWeaponList(current_mission);
 	roulette.disguises = createDisguiseList(current_mission, roulette);
