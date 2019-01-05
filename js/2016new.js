@@ -33,12 +33,14 @@ function createExtrasList(exit) {
 		
 	var extras = [];
 	
-	if (Math.random() < 1.12
+	if (Math.random() < 0.12
 		&& document.getElementById("disguise").checked == 0
 		&& !disguiseExits.includes(exit))
 		extras.push("Never change into a new disguise.");
 
-	if (Math.random() < 0.25 && document.getElementById("disguise").checked == 0)
+	if (Math.random() < 0.20
+		&& document.getElementById("disguise").checked == 0
+		&& !koExits.includes(exit))
 		extras.push("Do not kill or subdue non-targets.");
 	
 	if (Math.random() < 0.18) 

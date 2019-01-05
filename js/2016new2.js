@@ -6,6 +6,8 @@ var suitStarts = ["Red Carpet","Palace Garden","Pile-Driver Barge","Attic","Unde
 
 var disguiseExits = ["Ambulance", "Trash Truck"];
 
+var koExits = ["Merchant's Car", "Rico's Car", "Local's Car", "Roadwork Gate"];
+
 var generic = {
 	kills: ["Firearm","Melee Weapon (Small)","Melee Weapon (Large)","Accident","Explosion","Poison"],
 	firearms: ["Pistol","Sniper Rifle","Explosive (Weapon)","Assault Rifle","SMG","Loud Shotgun"],
@@ -58,7 +60,7 @@ var landslide = {
 	targetList: ["Marco Abiatti"],
 	contractTargets: ["Marco Abiatti","Photographer Marcello Folliero","Woman working at Abiatti's stand Alberta Arcuri","Padre Francesco","Red plumber Mario Fratelli","Green plumber Luigi Fratelli","Singer Cristina Dionisi","Abiatti's technician Roberto Mulo","Baker Dario Bronzo","Renzo 'Not Rocco' Forte","Lawyer Salvatore Bravuomo","Bohemian Silvestro Pugliesi"],
 	entry: ["Promenade"],
-	exit: ["Town Gate","Car","Speedboat"],
+	exit: ["Town Gate","Speedboat","Merchant's Car"],
 	disguises: ["47 in his Suit","Stage Crew","Security","Bodyguard","Photographer","Waiter","Church Staff","Priest","Gardener","Green Plumber","Red Plumber","Kitchen Assistant","Salvatore Bravuomo","Bohemian"],
 };
 
@@ -159,7 +161,7 @@ var ths = {
 	targetList: ["Rico Delgado", "Andrea Martinez","Jorge Franco"],
 	contractTargets: ["Rico Delgado", "Andrea Martinez","Jorge Franco"],
 	entry: ["Village Bus Stop","Village Hostel","Shaman's Hut","Village Bar","Construction Site","Coca Fields","Submarine Cave","Mansions Basement"],
-	exit: ["Sports Car", "Helicopter","Speedboat","Local's Car","Motorbike","Bus"],
+	exit: ["Rico's Car", "Helicopter","Speedboat","Local's Car","Motorbike","Bus"],
 	disguises: ["47 in his Suit","Drummer","Hippo Whisperer","Shaman","Submarine Crew","Submarine Engineer","Tattoo Artist","Coca Field Worker","Construction Worker","Mansion Staff","Mansion Guard","Coca Field Guard","Elite Guard","Street Soldier","Hippie","Barman","Gardener","Chef"]
 };
 
