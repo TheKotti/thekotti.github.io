@@ -1,131 +1,213 @@
 <!DOCTYPE html>
 <html>
-	<head lang="en">
-		<title>Hitman Roulette</title>
-		<link rel="stylesheet" href="css/main.css" type="text/css">
-		<meta charset="utf-8">		
-	</head>
-	
-	<body>
-		<header>
-			<img src="roulettebanner2018.png" />
-		</header>
-		
-		<nav>
-			<a href="roulette.html">Blood Money</a><br>
-			<a href="hitman.html">HITMAN</a><br>
-			<a href="about.html">About</a>
-		</nav>
-	
-		<section>
-			<h3>What is this?</h3>
-			<p>Hitman Roulette is a tool that aims to give new ideas on how to complete missions <br>in Hitman Blood Money and HITMAN 1-2 by giving a set of random guidelines to follow when playing. Currently it randomizes things such as entry point, kill order and kill method as well as a set of extra variables, some of which are generic and some mission specific. If you have any ideas for variables that could be randomized, do <a href="https://docs.google.com/forms/d/1SOIhbngUdcsawr0nSbK0tAI--vse7TXV0pxvKFnMHTs/viewform?usp=send_form" target="_blank" class="linkki">leave feedback</a> and let me know.</p>
-			<h3>What difficulty should I play on? Should I go for the Silent Assassin rating?</h3>
-			<p>It's entirely up to you. You're the one deciding how strictly you follow the randomized instructions. The main goal of the roulette is to give new ideas for different approaches so if you get an interesting route idea that doesn't follow the instructions, I encourage you to go for it anyway. Especially in missions like ADWTD having a lot of extra variables can make things needlessly difficult.</p>
-			<h3>Can I support Hitman Roulette by donating?</h3>
-			<p>The question asked by no one ever, but I'll answer anyway - yes, by using <a href="https://www.twitchalerts.com/donate/thekotti" target="_blank" class="linkki">this link</a>.</p>
-			
-	
-		<h3 style="display:inline">Changelog</h3> <button type="button" id="logbutton" style="display:inline" onclick="showLog()">Show</button>
-		<ul id="changelog" style="display:none">
-			<li class="versionnumber">0.521</li>
-			        <li>Made "no KOs" extra rule not appear when an specific exit requires a key from an NPC</li>
-			<li class="versionnumber">0.52</li>
-			        <li>Made "no disguise changes" extra rule no appear when a disguise specific exit is required</li>
-			        <li>Fixed filters not appearing correctly when switching to dark mode</li>
-			        <li>Removed contracts.html and included the relevant info in the roulette results</li>
-			<li class="versionnumber">0.51</li>
-			        <li>Updated the banner on the Blood Money roulette page to show Blood Money missions</li>
-			<li class="versionnumber">0.50</li>
-			        <li>Hitman 2 missions added, weapon and disguise lists incomplete</li>
-			        <li>Replaced references to Hitman 2016 with references to HITMAN</li>
-			<li class="versionnumber">0.43</li>
-			        <li>Updated the banner on all pages</li>
-			<li class="versionnumber">0.42</li>
-				<li>Removed kill order from Blood Money</li>
-			<li class="versionnumber">0.41</li>
-				<li>Minor fixes to the Patient Zero objects</li>
-			<li class="versionnumber">0.40</li>
-				<li>Added Patient Zero Campaign Missions: The Source (Bangkok), The Author (Sapienza, obviously), and Patient Zero (Hokkaido). The Vector (Colorado) is too restrictive for the roulette currently.</li>
-			<li class="versionnumber">0.35</li>
-				<li>Option to undo making it go</li>
-				<li>Refactoring the code</li>
-			<li class="versionnumber">0.34</li>
-				<li>Added Landslide and Holiday Hoarders</li>
-				<li>Certain extra modifiers will no longer appear if kills require specific disguises</li>
-				<li>Fixed inconsistencies in starting location names</li>
-			<li class="versionnumber">0.33</li>
-				<li>Added option for disguise randomization</li>
-				<li>Changed default settings</li>
-				<li>Added tooltips for settings (hover to see them)</li>
-				<li>New logo and minor style changes</li>
-			<li class="versionnumber">0.32</li>
-				<li>Added Situs Inversus</li>
-			<li class="versionnumber">0.31</li>
-				<li>Added Elusive Target support</li>
-			<li class="versionnumber">0.30</li>
-				<li>Big JavaScript/HTML/CSS overhaul</li>
-				<li>Added Freedom Fighters Contracts mode support</li>
-			<li class="versionnumber">0.27</li>
-				<li>Added Freedom Fighters without Contracts mode support</li>
-				<li>Added option for specific accidents</li>
-			<li class="versionnumber">0.26</li>
-				<li>Added The Icon, A House Built on Sand and Club 27</li>
-			<li class="versionnumber">0.25</li>
-				<li>Added Marrakesh Contracts mode targets</li>
-			<li class="versionnumber">0.24</li>
-				<li>Added A Gilded Cage</li>
-			<li class="versionnumber">0.23</li>
-				<li>Added limited Contracts mode support</li>
-				<li>Minor changes to weapon lists</li>
-				<li>Show/hide function for changelog</li>
-			<li class="versionnumber">0.22</li>
-				<li>Added World of Tomorrow</li>
-				<li>Removed specific accidents as they were often too specific (2016)</li>
-				<li>Added various firearms as kill methods (Blood Money)</li>
-			<li class="versionnumber">0.21</li>
-				<li>Added the popout option for Hitman 2016</li>
-			<li class="versionnumber">0.20</li>
-				<li>Added the Hitman 2016 page and The Showstopper</li>
-			<li class="versionnumber">0.12</li>
-				<li>Added option to select number of extra variables</li>
-				<li>Removed difficulty estimation as it was inaccurate and impractical</li>
-			<li class="versionnumber">0.11</li>
-				<li>Added the popout option</li>
-			<li class="versionnumber">0.10</li>
-				<li>Added all remaining missions</li>
-				<li>Reformatted the way results are displayed</li>
-			<li class="versionnumber">0.05</li>
-				<li>Added ADWTD</li>
-				<li>Added the "About" page</li>
-				<li>Made the whole thing look less bad</li>
-			<li class="versionnumber">0.04</li>
-				<li>Added YBWO and AXXV</li>
-				<li>Added the option to select a random mission</li>
-				<li>Fixed a bug where extra variables wouldn't clear when changing mission</li>
-			<li class="versionnumber">0.03</li>
-				<li>Added AVY and CD</li>
-				<li>Added difficulty estimate (ANL)</li>
-				<li>Added styling</li>
-				<li>Added a feedback form link</li>
-			<li class="versionnumber">0.02</li>
-				<li>Added TDDUP</li>
-				<li>Added level select and refresh button</li>
-			<li class="versionnumber">0.01</li>
-				<li>Added ANL</li></ul>
-				<br><br>
-			<p>Special thanks to:<br>
-			- Arctice for making sense of the original code and refactoring it<br>
-			- Dribbleondo for the banners/logo, and for adding Patient Zero missions<br>
-			- Winterbirds for <a href="http://hitmanmaps.com/" target=_blank class="linkki">HitmanMaps</a><br>
-			- r/hitman for helping gather data on Hitman 2 weapons, disguises and exits<p>
-			<script src="js/about.js"></script>
-			
-		</section>
-		
-		<footer>
-			<p>By <a href="https://twitter.com/TheKotti">Kotti</a> | <a href="https://github.com/TheKotti/thekotti.github.io">Github</a> </p>
-		</footer>
-		
-	</body>
+  <head lang="en">
+    <title>Hitman Roulette</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <header>
+      <img src="roulettebanner2018.png" />
+    </header>
+
+    <nav>
+      <a href="roulette.html">Blood Money</a><br />
+      <a href="hitman.html">HITMAN</a><br />
+      <a href="about.html">About</a>
+    </nav>
+
+    <section>
+      <h3>What is this?</h3>
+      <p>
+        Hitman Roulette is a tool that aims to give new ideas on how to complete
+        missions <br />in Hitman Blood Money and HITMAN 1-2 by giving a set of
+        random guidelines to follow when playing. Currently it randomizes things
+        such as entry point, kill order and kill method as well as a set of
+        extra variables, some of which are generic and some mission specific. If
+        you have any ideas for variables that could be randomized, do
+        <a
+          href="https://docs.google.com/forms/d/1SOIhbngUdcsawr0nSbK0tAI--vse7TXV0pxvKFnMHTs/viewform?usp=send_form"
+          target="_blank"
+          class="linkki"
+          >leave feedback</a
+        >
+        and let me know.
+      </p>
+      <h3>
+        What difficulty should I play on? Should I go for the Silent Assassin
+        rating?
+      </h3>
+      <p>
+        It's entirely up to you. You're the one deciding how strictly you follow
+        the randomized instructions. The main goal of the roulette is to give
+        new ideas for different approaches so if you get an interesting route
+        idea that doesn't follow the instructions, I encourage you to go for it
+        anyway. Especially in missions like ADWTD having a lot of extra
+        variables can make things needlessly difficult.
+      </p>
+      <h3>Can I support Hitman Roulette by donating?</h3>
+      <p>
+        The question asked by no one ever, but I'll answer anyway - yes, by
+        using
+        <a
+          href="https://www.twitchalerts.com/donate/thekotti"
+          target="_blank"
+          class="linkki"
+          >this link</a
+        >.
+      </p>
+
+      <h3 style="display:inline">Changelog</h3>
+      <button
+        type="button"
+        id="logbutton"
+        style="display:inline"
+        onclick="showLog()"
+      >
+        Show
+      </button>
+      <ul id="changelog" style="display:none">
+        <li class="versionnumber">0.522</li>
+        <li>Added Drug Lab Worker and Sheriff Masterson disguises</li>
+        <li>Change Three-Headed Serpent exit from Motorbike to Scooter</li>
+        <li class="versionnumber">0.521</li>
+        <li>
+          Made "no KOs" extra rule not appear when an specific exit requires a
+          key from an NPC
+        </li>
+        <li class="versionnumber">0.52</li>
+        <li>
+          Made "no disguise changes" extra rule no appear when a disguise
+          specific exit is required
+        </li>
+        <li>
+          Fixed filters not appearing correctly when switching to dark mode
+        </li>
+        <li>
+          Removed contracts.html and included the relevant info in the roulette
+          results
+        </li>
+        <li class="versionnumber">0.51</li>
+        <li>
+          Updated the banner on the Blood Money roulette page to show Blood
+          Money missions
+        </li>
+        <li class="versionnumber">0.50</li>
+        <li>Hitman 2 missions added, weapon and disguise lists incomplete</li>
+        <li>Replaced references to Hitman 2016 with references to HITMAN</li>
+        <li class="versionnumber">0.43</li>
+        <li>Updated the banner on all pages</li>
+        <li class="versionnumber">0.42</li>
+        <li>Removed kill order from Blood Money</li>
+        <li class="versionnumber">0.41</li>
+        <li>Minor fixes to the Patient Zero objects</li>
+        <li class="versionnumber">0.40</li>
+        <li>
+          Added Patient Zero Campaign Missions: The Source (Bangkok), The Author
+          (Sapienza, obviously), and Patient Zero (Hokkaido). The Vector
+          (Colorado) is too restrictive for the roulette currently.
+        </li>
+        <li class="versionnumber">0.35</li>
+        <li>Option to undo making it go</li>
+        <li>Refactoring the code</li>
+        <li class="versionnumber">0.34</li>
+        <li>Added Landslide and Holiday Hoarders</li>
+        <li>
+          Certain extra modifiers will no longer appear if kills require
+          specific disguises
+        </li>
+        <li>Fixed inconsistencies in starting location names</li>
+        <li class="versionnumber">0.33</li>
+        <li>Added option for disguise randomization</li>
+        <li>Changed default settings</li>
+        <li>Added tooltips for settings (hover to see them)</li>
+        <li>New logo and minor style changes</li>
+        <li class="versionnumber">0.32</li>
+        <li>Added Situs Inversus</li>
+        <li class="versionnumber">0.31</li>
+        <li>Added Elusive Target support</li>
+        <li class="versionnumber">0.30</li>
+        <li>Big JavaScript/HTML/CSS overhaul</li>
+        <li>Added Freedom Fighters Contracts mode support</li>
+        <li class="versionnumber">0.27</li>
+        <li>Added Freedom Fighters without Contracts mode support</li>
+        <li>Added option for specific accidents</li>
+        <li class="versionnumber">0.26</li>
+        <li>Added The Icon, A House Built on Sand and Club 27</li>
+        <li class="versionnumber">0.25</li>
+        <li>Added Marrakesh Contracts mode targets</li>
+        <li class="versionnumber">0.24</li>
+        <li>Added A Gilded Cage</li>
+        <li class="versionnumber">0.23</li>
+        <li>Added limited Contracts mode support</li>
+        <li>Minor changes to weapon lists</li>
+        <li>Show/hide function for changelog</li>
+        <li class="versionnumber">0.22</li>
+        <li>Added World of Tomorrow</li>
+        <li>
+          Removed specific accidents as they were often too specific (2016)
+        </li>
+        <li>Added various firearms as kill methods (Blood Money)</li>
+        <li class="versionnumber">0.21</li>
+        <li>Added the popout option for Hitman 2016</li>
+        <li class="versionnumber">0.20</li>
+        <li>Added the Hitman 2016 page and The Showstopper</li>
+        <li class="versionnumber">0.12</li>
+        <li>Added option to select number of extra variables</li>
+        <li>
+          Removed difficulty estimation as it was inaccurate and impractical
+        </li>
+        <li class="versionnumber">0.11</li>
+        <li>Added the popout option</li>
+        <li class="versionnumber">0.10</li>
+        <li>Added all remaining missions</li>
+        <li>Reformatted the way results are displayed</li>
+        <li class="versionnumber">0.05</li>
+        <li>Added ADWTD</li>
+        <li>Added the "About" page</li>
+        <li>Made the whole thing look less bad</li>
+        <li class="versionnumber">0.04</li>
+        <li>Added YBWO and AXXV</li>
+        <li>Added the option to select a random mission</li>
+        <li>
+          Fixed a bug where extra variables wouldn't clear when changing mission
+        </li>
+        <li class="versionnumber">0.03</li>
+        <li>Added AVY and CD</li>
+        <li>Added difficulty estimate (ANL)</li>
+        <li>Added styling</li>
+        <li>Added a feedback form link</li>
+        <li class="versionnumber">0.02</li>
+        <li>Added TDDUP</li>
+        <li>Added level select and refresh button</li>
+        <li class="versionnumber">0.01</li>
+        <li>Added ANL</li>
+      </ul>
+      <br /><br />
+      <p>
+        Special thanks to:<br />
+        - Arctice for making sense of the original code and refactoring it<br />
+        - Dribbleondo for the banners/logo, and for adding Patient Zero
+        missions<br />
+        - Winterbirds for
+        <a href="http://hitmanmaps.com/" target="_blank" class="linkki"
+          >HitmanMaps</a
+        ><br />
+        - r/hitman for helping gather data on Hitman 2 weapons, disguises and
+        exits
+      </p>
+
+      <p>
+        <script src="js/about.js"></script>
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        By <a href="https://twitter.com/TheKotti">Kotti</a> |
+        <a href="https://github.com/TheKotti/thekotti.github.io">Github</a>
+      </p>
+    </footer>
+  </body>
 </html>

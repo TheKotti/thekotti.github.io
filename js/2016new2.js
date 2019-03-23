@@ -821,7 +821,8 @@ var ths = {
     "Hippie",
     "Barman",
     "Gardener",
-    "Chef"
+    "Chef",
+    "Drug Lab Worker"
   ]
 };
 
@@ -935,7 +936,8 @@ var al = {
     "Gunther Mueller",
     "Gardener",
     "James Batty",
-    "Plumber"
+    "Plumber",
+    "Sheriff Masterson"
   ]
 };
 
