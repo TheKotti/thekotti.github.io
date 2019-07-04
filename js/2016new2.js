@@ -49,7 +49,9 @@ var suitStarts = [
   "Harbor",
   "Chapel",
   "Keep",
-  "Bank Entrance"
+  "Bank Entrance",
+  "Steel Bridge",
+  "Outside Chawl"
 ];
 
 var disguiseExits = ["Ambulance", "Trash Truck"];
@@ -1044,6 +1046,122 @@ var gh = {
   ]
 };
 
+var eots = {
+  missionTitle: "Embrace of the Serpent",
+  melee: [
+    "Fiber Wire",
+    "Screwdriver",
+    "Kitchen Knife",
+    "Cleaver",
+    "Scissors",
+    "Barber Razor",
+    "Letter Opener",
+    "Machete"
+  ],
+  targetList: ["Blair Reddington"],
+  contractTargets: ["Blair Reddington"],
+  entry: [
+    "Village Bus Stop",
+    "Steel Bridge",
+    "Village Hostel",
+    "Shaman's Hut",
+    "Village Bar",
+    "Construction Site",
+    "Coca Fields",
+    "Submarine Cave",
+    "Mansions Basement"
+  ],
+  exit: [
+    "Rico's Car",
+    "Helicopter",
+    "Speedboat",
+    "Local's Car",
+    "Scooter",
+    "Bus"
+  ],
+  disguises: [
+    "47 in his Suit",
+    "Drummer",
+    "Hippo Whisperer",
+    "Shaman",
+    "Submarine Crew",
+    "Submarine Engineer",
+    "Tattoo Artist",
+    "Coca Field Worker",
+    "Construction Worker",
+    "Mansion Staff",
+    "Mansion Guard",
+    "Coca Field Guard",
+    "Elite Guard",
+    "Street Soldier",
+    "Hippie",
+    "Barman",
+    "Gardener",
+    "Chef",
+    "Drug Lab Worker"
+  ]
+};
+
+var iog = {
+  missionTitle: "Illusions of Grandeur",
+  melee: [
+    "Fiber Wire",
+    "Beak Axe",
+    "Old Axe",
+    "Scissors",
+    "Measuring Tape",
+    "Amputation Knife",
+    "Screwdriver",
+    "Barber Razor",
+    "Cleaver",
+    "Folding Knife",
+    "Letter Opener",
+    "Kitchen Knife",
+    "Saber",
+    "Fire Axe"
+  ],
+  targetList: ["Basil Carnaby"],
+  contractTargets: ["Basil Carnaby"],
+  entry: [
+    "Main Street",
+    "Outside Chawl",
+    "Train",
+    "Boat",
+    "Skywalk",
+    "Taxi",
+    "Chawls",
+    "Laundry",
+    "Barge",
+    "Slums",
+    "Metal Forge",
+    "Photo Shoot",
+    "Hill",
+    "Train Yard",
+  ],
+  exit: ["Boat", "Street", "Taxi", "Train", "Crows' Hideout"],
+  disguises: [
+    "47 in his Suit",
+    "Local Security",
+    "Food Vendor",
+    "Thug",
+    "Elite Thug",
+    "Metal Worker",
+    "Tailor",
+    "Queen's Guard",
+    "Vanya's Servant",
+    "Queen's Bodyguard",
+    "Laundry Worker",
+    "Laundry Foreman",
+    "Dancer",
+    "Holy Man",
+    "Lead Actor",
+    "Kashmirian",
+    "Barber",
+    "Bollywood Bodyguard",
+    "Painter"
+  ]
+};
+
 var mission_names_map = {
   TSS: showstopper,
   HH: hh,
@@ -1063,7 +1181,9 @@ var mission_names_map = {
   CAG: cag,
   AL: al,
   TAS: tas,
-  GH: gh
+  GH: gh,
+  EOTS: eots,
+  IOG: iog
 };
 
 var killTypesMap = {
