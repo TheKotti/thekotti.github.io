@@ -4,7 +4,7 @@ function createContainerObject() {
 	
 	var missionIndex = document.getElementById("missionselect");
 	var mission_name = missionIndex.options[missionIndex.selectedIndex].value;
-	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si,ts,ta,pz,tfl,ths,cag,al,tas,gh];
+	var randomMissionList = [showstopper,hh,wot,agc,icon,landslide,ahbos,c27,ff,si,ts,ta,pz,tfl,ths,cag,al,tas,gh,eots,iog];
 //The Vector is missing due to way too many workarounds for dribbleondo to get that mission working properly.
 	
 	for (var prop in generic)
