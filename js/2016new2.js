@@ -48,7 +48,10 @@ var suitStarts = [
   "Whittleton Creek",
   "Harbor",
   "Chapel",
-  "Keep"
+  "Keep",
+  "Bank Entrance",
+  "Steel Bridge",
+  "Outside Chawl"
 ];
 
 var disguiseExits = ["Ambulance", "Trash Truck"];
@@ -99,14 +102,14 @@ var showstopper = {
   contractTargets: [
     "Viktor Novikov",
     "Dalia Margolis",
-    "Fashion designer Sebastian Sato",
-    "Model Helmut Kruger",
-    "FSB agent Max Decker",
+    "Fashion designer - Sebastian Sato",
+    "Model - Helmut Kruger",
+    "FSB agent - Max Decker",
     "Sheik Salman Al-Ghazali",
-    "Reporter Liza McKenzie",
-    "Dalia's secretary Hailey Brennan",
-    "Viktor's bodyguard Kurt Donovan",
-    "Dalia's assistant Sophus Fatale"
+    "Reporter - Liza McKenzie",
+    "Dalia's secretary - Hailey Brennan",
+    "Viktor's bodyguard - Kurt Donovan",
+    "Dalia's assistant - Sophus Fatale"
   ],
   entry: [
     "Red Carpet",
@@ -201,16 +204,16 @@ var wot = {
   contractTargets: [
     "Silvio Caruso",
     "Francesca De Santis",
-    "Butler Terenzio Endrizzi",
-    "Golf coach Roberto Vargas",
+    "Butler - Terenzio Endrizzi",
+    "Golf coach - Roberto Vargas",
     "Chef Marcello Ray",
-    "Green plumber Luigi Saltatore",
+    "Green plumber - Luigi Saltatore",
     "Dr. Oscar Lafayette",
-    "Bohemian Torres Piombo",
-    "Private investigator Sal Falcone",
-    "Scientist with dongle Viana Buccho",
-    "Undertaker Fabio Pavione",
-    "Red plumber Mario Saltatore"
+    "Bohemian - Torres Piombo",
+    "Private investigator - Sal Falcone",
+    "Scientist with dongle - Viana Buccho",
+    "Undertaker - Fabio Pavione",
+    "Red plumber - Mario Saltatore"
   ],
   entry: [
     "Main Square",
@@ -268,11 +271,11 @@ var icon = {
   targetList: ["Dino Bosco"],
   contractTargets: [
     "Dino Bosco",
-    "Tech crew member near city gates Palmiro Russo",
-    "Merchandise salesman Enrico Nucci",
-    "Bosco's agent Sophia Wilde",
-    "Guard in the tower Giuseppe Monaldo",
-    "SFX crew member indoors Amaranto 'Tony' Mazzi"
+    "Tech crew member near city gates - Palmiro Russo",
+    "Merchandise salesman - Enrico Nucci",
+    "Bosco's agent - Sophia Wilde",
+    "Guard in the tower - Giuseppe Monaldo",
+    "SFX crew member indoors - Amaranto 'Tony' Mazzi"
   ],
   entry: ["City gates"],
   exit: ["Town Gate", "Bosco's Car"],
@@ -302,17 +305,17 @@ var landslide = {
   targetList: ["Marco Abiatti"],
   contractTargets: [
     "Marco Abiatti",
-    "Photographer Marcello Folliero",
-    "Woman working at Abiatti's stand Alberta Arcuri",
+    "Photographer - Marcello Folliero",
+    "Woman working at Abiatti's stand - Alberta Arcuri",
     "Padre Francesco",
-    "Red plumber Mario Fratelli",
-    "Green plumber Luigi Fratelli",
-    "Singer Cristina Dionisi",
-    "Abiatti's technician Roberto Mulo",
-    "Baker Dario Bronzo",
+    "Red plumber - Mario Fratelli",
+    "Green plumber - Luigi Fratelli",
+    "Singer Cristina - Dionisi",
+    "Abiatti's technician - Roberto Mulo",
+    "Baker - Dario Bronzo",
     "Renzo 'Not Rocco' Forte",
-    "Lawyer Salvatore Bravuomo",
-    "Bohemian Silvestro Pugliesi"
+    "Lawyer - Salvatore Bravuomo",
+    "Bohemian - Silvestro Pugliesi"
   ],
   entry: ["Promenade"],
   exit: ["Town Gate", "Speedboat", "Merchant's Car"],
@@ -352,15 +355,15 @@ var agc = {
   contractTargets: [
     "Claus Hugo Strandberg",
     "Reza Zaydan",
-    "Printing crew member Ashraf Raghib Mustafa",
-    "Cameraman Jeff Baker",
-    "School headmaster Shahin Abdul-Barr Maalouf",
-    "Masseur Konny Engström",
-    "Elite soldier in the tunnel Jawwaad Reza",
-    "Consulate intern Hektor Lindberg",
-    "Fortune teller Zaki Diab",
-    "Protester Shuaib Aly",
-    "Woman on lamp store roof Hilda Berg"
+    "Printing crew member - Ashraf Raghib Mustafa",
+    "Cameraman - Jeff Baker",
+    "School headmaster - Shahin Abdul-Barr Maalouf",
+    "Masseur - Konny Engström",
+    "Elite soldier in the tunnel - Jawwaad Reza",
+    "Consulate intern - Hektor Lindberg",
+    "Fortune teller - Zaki Diab",
+    "Protester - Shuaib Aly",
+    "Woman on lamp store roof - Hilda Berg"
   ],
   entry: [
     "Bazaar Entrance",
@@ -411,12 +414,12 @@ var ahbos = {
   contractTargets: [
     "Matthieu Mendola",
     "Kong Tuo-Kwang",
-    "Shopkeeper by the well Yousef Shitrit",
-    "Guitarist Jalal al Din Muti Said",
-    "Fortune teller Zaki Diab",
-    "Vomiting bodyguard Hussein Guirguis",
-    "Waiter at the meeting spot Ahmed Aziz",
-    "Bartender Jewel Bourgeois"
+    "Shopkeeper by the well - Yousef Shitrit",
+    "Guitarist - Jalal al Din Muti Said",
+    "Fortune teller - Zaki Diab",
+    "Vomiting bodyguard - Hussein Guirguis",
+    "Waiter at the meeting spot - Ahmed Aziz",
+    "Bartender - Jewel Bourgeois"
   ],
   entry: ["Consulate plaza"],
   exit: ["Bazaar Gates", "Truck", "Door near the Well", "Door by the Street"],
@@ -449,17 +452,17 @@ var c27 = {
   contractTargets: [
     "Jordan Cross",
     "Ken Morgan",
-    "Cross' Manager Dexy Barat",
-    "Producer Max Liston",
-    "Guitarist Heidi Santoro",
-    "Guest residing in room 208 Toby Hicks",
-    "Former sitcom star Jackie Carrington",
-    "Drummer Abel De Silva",
-    "Hotel manager Mrs. Mookjai",
-    "Chef Tharn Srisai",
-    "Man passed out in Jackie's room Julian",
-    "Stalker Benjamin Bertam",
-    "Ken's bodyguard Otis Kaplan"
+    "Cross' Manager - Dexy Barat",
+    "Producer - Max Liston",
+    "Guitarist - Heidi Santoro",
+    "Guest residing in room 208 - Toby Hicks",
+    "Former sitcom star - Jackie Carrington",
+    "Drummer - Abel De Silva",
+    "Hotel manager - Mrs. Mookjai",
+    "Chef - Tharn Srisai",
+    "Man passed out in Jackie's room - Julian",
+    "Stalker - Benjamin Bertam",
+    "Ken's bodyguard - Otis Kaplan"
   ],
   entry: [
     "Riverside Landing",
@@ -497,13 +500,13 @@ var ff = {
     "Penelope Graves",
     "Ezra Berg",
     "Maya Parvati",
-    "Explosives specialist Quince Elliot",
-    "Militia cook Robert Powell",
-    "Point man Lloyd Burgess",
-    "Militia technician Milton Geiger",
-    "Sleeping militia soldier Mario Thompson",
-    "Militia spec ops in the barn Liam Butler",
-    "Drill instructor Albert Knarr"
+    "Explosives specialist - Quince Elliot",
+    "Militia cook - Robert Powell",
+    "Point man - Lloyd Burgess",
+    "Militia technician - Milton Geiger",
+    "Sleeping militia soldier - Mario Thompson",
+    "Militia spec ops in the barn - Liam Butler",
+    "Drill instructor - Albert Knarr"
   ],
   entry: [
     "Undercover in the Garage",
@@ -545,17 +548,17 @@ var si = {
   targetList: ["Yuki Yamazaki", "Erich Soders"],
   contractTargets: [
     "Yuki Yamazaki",
-    "Showering resort staff member Lowell Aucoin",
-    "Dancing master Toshimi 'Sandā no ashi' Kaneko",
-    "Stetson man Amos Dexter",
-    "The director Akira Nakamura",
-    "Facial surgery patient Jason Portman",
-    "Yoga instructor J. Brooke",
-    "Head surgeon Nicholas Laurent",
-    "Helicopter pilot Nails",
-    "Nurse in the operating room Kimiho Ookawa",
-    "The curator Katashi Ito",
-    "Smoking handyman Tomiyuki Fujihara"
+    "Showering resort staff member - Lowell Aucoin",
+    "Dancing master - Toshimi 'Sandā no ashi' Kaneko",
+    "Stetson man - Amos Dexter",
+    "The director - Akira Nakamura",
+    "Facial surgery patient - Jason Portman",
+    "Yoga instructor - J. Brooke",
+    "Head surgeon - Nicholas Laurent",
+    "Helicopter - pilot Nails",
+    "Nurse in the operating room - Kimiho Ookawa",
+    "The curator - Katashi Ito",
+    "Smoking handyman - Tomiyuki Fujihara"
   ],
   entry: [
     "Tobias Rieper's Suite",
@@ -621,17 +624,17 @@ var ts = {
   contractTargets: [
     "Oybek Nabazov",
     "Sister Yulduz",
-    "Waiter outside the exhibition Robert Egg",
-    "Cult bodyguard Akram",
-    "Defecting cultist Jeff",
-    "Manipulative cultist Rebecca",
-    "Man with a beige hat in the exhibition Charles Slaughter",
-    "Former sitcom star Jackie Carrington",
-    "Man passed out in Jackie's room Julian",
-    "Man with a yellow jumper tied around his waist Sam Harrison",
-    "Female Hotel Staff in the globe room Vipada Ahunai",
-    "Cultist in the top floor Robert Uppey Jr",
-    "Security Guard on the pier A-Wut"
+    "Waiter outside the exhibition - Robert Egg",
+    "Cult bodyguard - Akram",
+    "Defecting cultist - Jeff",
+    "Manipulative cultist - Rebecca",
+    "Man with a beige hat in the exhibition - Charles Slaughter",
+    "Former sitcom star - Jackie Carrington",
+    "Man passed out in Jackie's room - Julian",
+    "Man with a yellow jumper tied around his waist - Sam Harrison",
+    "Female Hotel Staff in the globe room - Vipada Ahunai",
+    "Cultist on the top floor - Robert Uppey Jr",
+    "Security Guard on the pier - A-Wut"
   ],
   entry: ["Hotel Front Terrace"],
   exit: ["Boat", "Tunnel"],
@@ -996,6 +999,169 @@ var tas = {
   ]
 };
 
+var gh = {
+  missionTitle: "Golden Handshake",
+  melee: [
+    "Screwdriver",
+    "Letter Opener",
+    "Scissors",
+    "Kitchen Knife",
+    "Fiber Wire",
+    "Fire Axe",
+    "Tanto",
+    "Earphones"
+  ],
+  targetList: ["Athena Savalas"],
+  contractTargets: [
+    "Athena Savalas",
+    "Head Of Accounts - Fabian Mann",
+    "Head Of Security - Mateo Perez",
+    "Briefcase Man - Wendell Poss",
+    "Investigative Reporter - Ruby Red",
+    "Ruby's Whistleblower - Nicole Samson",
+    "Nervous Job Applicant - Lewis Whitesides",
+    "Soon-to-be-Fired Employee - Logan Deen",
+    "Slacking Employee - Jimmie Gladwin",
+    "Athena's Bodyguard - Jayson Lefler",
+    "First Squabbling Bank Robber - Sugar Squirrel",
+    "Second Squabbling Bank Robber - Gourd"
+  ],
+  entry: [
+    "Bank Entrance",
+    "Undercover in Audit Hall",
+    "Undercover in Investman Floor",
+    "Undercover at First Floor Mezzanine",
+    "Undercover in Deposit Box Room",
+    "Undercover in Garage"
+  ],
+  exit: ["Money Truck", "Fire Exit", "Bank Entrance", "Athena's Fire Exit"],
+  disguises: [
+    "47 in his Suit",
+    "Bank Teller",
+    "Bank Robber",
+    "High Security Guard",
+    "Investment Banker",
+    "Janitor",
+    "Security Guard"
+  ]
+};
+
+var eots = {
+  missionTitle: "Embrace of the Serpent",
+  melee: [
+    "Fiber Wire",
+    "Screwdriver",
+    "Kitchen Knife",
+    "Cleaver",
+    "Scissors",
+    "Barber Razor",
+    "Letter Opener",
+    "Machete"
+  ],
+  targetList: ["Blair Reddington"],
+  contractTargets: ["Blair Reddington"],
+  entry: [
+    "Village Bus Stop",
+    "Steel Bridge",
+    "Village Hostel",
+    "Shaman's Hut",
+    "Village Bar",
+    "Construction Site",
+    "Coca Fields",
+    "Submarine Cave",
+    "Mansions Basement"
+  ],
+  exit: [
+    "Rico's Car",
+    "Helicopter",
+    "Speedboat",
+    "Local's Car",
+    "Scooter",
+    "Bus"
+  ],
+  disguises: [
+    "47 in his Suit",
+    "Drummer",
+    "Hippo Whisperer",
+    "Shaman",
+    "Submarine Crew",
+    "Submarine Engineer",
+    "Tattoo Artist",
+    "Coca Field Worker",
+    "Construction Worker",
+    "Mansion Staff",
+    "Mansion Guard",
+    "Coca Field Guard",
+    "Elite Guard",
+    "Street Soldier",
+    "Hippie",
+    "Barman",
+    "Gardener",
+    "Chef",
+    "Drug Lab Worker"
+  ]
+};
+
+var iog = {
+  missionTitle: "Illusions of Grandeur",
+  melee: [
+    "Fiber Wire",
+    "Beak Axe",
+    "Old Axe",
+    "Scissors",
+    "Measuring Tape",
+    "Amputation Knife",
+    "Screwdriver",
+    "Barber Razor",
+    "Cleaver",
+    "Folding Knife",
+    "Letter Opener",
+    "Kitchen Knife",
+    "Saber",
+    "Fire Axe"
+  ],
+  targetList: ["Basil Carnaby"],
+  contractTargets: ["Basil Carnaby"],
+  entry: [
+    "Main Street",
+    "Outside Chawl",
+    "Train",
+    "Boat",
+    "Skywalk",
+    "Taxi",
+    "Chawls",
+    "Laundry",
+    "Barge",
+    "Slums",
+    "Metal Forge",
+    "Photo Shoot",
+    "Hill",
+    "Train Yard",
+  ],
+  exit: ["Boat", "Street", "Taxi", "Train", "Crows' Hideout"],
+  disguises: [
+    "47 in his Suit",
+    "Local Security",
+    "Food Vendor",
+    "Thug",
+    "Elite Thug",
+    "Metal Worker",
+    "Tailor",
+    "Queen's Guard",
+    "Vanya's Servant",
+    "Queen's Bodyguard",
+    "Laundry Worker",
+    "Laundry Foreman",
+    "Dancer",
+    "Holy Man",
+    "Lead Actor",
+    "Kashmirian",
+    "Barber",
+    "Bollywood Bodyguard",
+    "Painter"
+  ]
+};
+
 var mission_names_map = {
   TSS: showstopper,
   HH: hh,
@@ -1014,7 +1180,10 @@ var mission_names_map = {
   THS: ths,
   CAG: cag,
   AL: al,
-  TAS: tas
+  TAS: tas,
+  GH: gh,
+  EOTS: eots,
+  IOG: iog
 };
 
 var killTypesMap = {
