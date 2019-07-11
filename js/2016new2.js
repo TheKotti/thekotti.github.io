@@ -1061,7 +1061,6 @@ var eots = {
   targetList: ["Blair Reddington"],
   contractTargets: ["Blair Reddington"],
   entry: [
-    "Village Bus Stop",
     "Steel Bridge",
     "Village Hostel",
     "Village Bar",
