@@ -51,7 +51,10 @@ var suitStarts = [
   "Keep",
   "Bank Entrance",
   "Steel Bridge",
-  "Outside Chawl"
+  "Outside Chawl",
+  "Resort Pier",
+  "Shark Hut",
+  "Resort Pool"
 ];
 
 var disguiseExits = ["Ambulance", "Trash Truck"];
@@ -69,6 +72,7 @@ var generic = {
   ],
   firearms: [
     "Pistol",
+    "Silenced Pistol",
     "Sniper Rifle",
     "Explosive (Weapon)",
     "Assault Rifle",
@@ -1132,7 +1136,7 @@ var iog = {
     "Slums",
     "Metal Forge",
     "Hill",
-    "Train Yard",
+    "Train Yard"
   ],
   exit: ["Boat", "Street", "Taxi", "Train", "Crows' Hideout"],
   disguises: [
@@ -1155,6 +1159,180 @@ var iog = {
     "Barber",
     "Bollywood Bodyguard",
     "Painter"
+  ],
+};
+
+var tlr = {
+  missionTitle: "The Last Resort",
+  melee: [
+    "Kitchen Knife",
+    "Screwdriver",
+    "Fire Axe",
+    "Cleaver",
+    "Hatchet",
+    "Letter Opener",
+    "Fiber Wire",
+    "Starfish"
+  ],
+  targetList: ["Tyson Williams", "Steven Bradley", "Ljudmilla Vetrova"],
+  contractTargets: [
+    "Tyson Williams", 
+    "Steven Bradley", 
+    "Ljudmilla Vetrova",
+    "Shark Hut Staff - Bana Malhotra",
+    "Ljudmilla's Bodyguard - Cooper Gilliam",
+    "Steven Bradley's Bodyguard - Larry Cox",
+    "Tyson William's Bodyguard - Mike Thompson",
+    "Womanising Guard at Tiki Hut - Bharat Kurian",
+    "Guard Sitting at the Red Light TV - Mike Osmond",
+    "Long Haired Man at Restaraunt - Liam Young",
+    "Tech Crew - James Firth",
+    "Private Villa Butler - Carl Lewis",
+    "Daring Shark Pool Man - Carl Lewis",
+    "The Thief - Leah Cooper",
+    "The New Tech Crew Guy - Luo Shoushan"
+  ],
+  entry: [
+    "Resort Pier",
+    "Shark Hut",
+    "Resort Pool",
+    "Undercover in the Resort Gym",
+    "Undercover in the Private Villa Pier",
+    "Undercover in the Restaurant's Kitchen"
+  ],
+  exit: ["Black Boat", "White Speedboat", "Seaplane"],
+  disguises: [
+    "47 in his Suit",
+    "Dr. Singh",
+    "Villa guard",
+    "Resort guard",
+    "Bodyguard",
+    "Resort Staff",
+    "Gas Suit",
+    "Tech Crew",
+    "Waiter",
+    "Ljudmilla's Bodyguard",
+    "Steven Bradley's Bodyguard",
+    "Tyson William's Bodyguard"
+  ]
+};
+
+var ast = {
+  missionTitle: "A Silver Tongue",
+  melee: [
+    "Fiber Wire",
+    "Amputation Knife",
+    "Battleaxe",
+    "Cleaver",
+    "Kitchen Knife",
+    "Scissors",
+    "Screwdriver",
+    "Starfish",
+    "Fire Axe",
+    "Old Axe"
+  ],
+  targetList: ["Ajit Krish"],
+  contractTargets: ["Ajit Krish"],
+  entry: [
+    "Event Entrance",
+    "Dolphin Fountain",
+    "Marina",
+    "Stands",
+    "Food Stand",
+    "Overpass",
+    "Driver's Lounge",
+    "Podium",
+    "Medical Area",
+    "Kronstadt Bayside Center",
+    "Kowoon Pit"
+  ],
+  exit: ["Helicopter", "Main Gate", "Sewer", "Speedboat", "Ambulance"],
+  disguises: [
+    "47 in his Suit",
+    "Aeon Driver",
+    "Aeon Mechanic",
+    "Event Crew",
+    "Event Security",
+    "Florida Man",
+    "Food Vendor",
+    "Journalist",
+    "Kitchen Staff",
+    "Kowoon Driver",
+    "Kowoon Mechanic",
+    "Kronstadt Engineer",
+    "Kronstadt Researcher",
+    "Kronstadt Security",
+    "Mascot",
+    "Medic",
+    "Moses Lee",
+    "Pale Rider",
+    "Photographer",
+    "Race Coordinator",
+    "Race Marshall",
+    "Sheik",
+    "Sotteraneo Mechanic",
+    "Street Musician",
+    "Ted Mendez",
+    "Thwack Driver",
+    "Waiter",
+    "Blue Seed Driver",
+    "Kronstadt Driver",
+    "Kronstadt Mechanic"
+  ]
+};
+
+  var abp = {
+  missionTitle: "A Bitter Pill",
+  melee: [
+    "Fiber Wire",
+    "Old Axe",
+    "Kitchen Knife",
+    "Screwdriver",
+    "Scissors",
+    "Letter Opener",
+    "Fire Axe",
+    "Hatchet"
+  ],
+  targetList: ["Galen Vholes"],
+  contractTargets: ["Galen Vholes"],
+  entry: [
+    "Whittleton Creek",
+    "Construction Area",
+    "Fumigation",
+    "Garbage Removal",
+    "Suburb Sign",
+    "BBQ Party"
+  ],
+  exit: [
+    "Bus",
+    "Raft",
+    "Sewer",
+    "Construction Van",
+    "Trash Truck",
+    "Roadwork Gate"
+  ],
+  disguises: [
+    "47 in his Suit",
+    "Exterminator",
+    "Politician",
+    "Real Estate Broker",
+    "Nurse",
+    "Arkian Robe",
+    "Janus' Bodyguard",
+    "Cassidy Bodyguard",
+    "Police Debuty",
+    "Construction Crew",
+    "Politician's Assistant",
+    "Server",
+    "Garbage Man",
+    "Spencer 'The Hammer' Green",
+    "BBQ Owner",
+    "Mailman",
+    "Gunther Mueller",
+    "Gardener",
+    "James Batty",
+    "Plumber",
+    "Sheriff Masterson"
   ]
 };
 
@@ -1179,7 +1357,10 @@ var mission_names_map = {
   TAS: tas,
   GH: gh,
   EOTS: eots,
-  IOG: iog
+  IOG: iog,
+  TLR: tlr,
+  AST: ast,
+  ABP: abp
 };
 
 var killTypesMap = {
