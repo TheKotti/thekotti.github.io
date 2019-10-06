@@ -36,12 +36,17 @@ function createExtrasList(exit) {
 	if (Math.random() < 0.12
 		&& document.getElementById("disguise").checked == 0
 		&& !disguiseExits.includes(exit))
-		extras.push("Never change into a new disguise.");
+		extras.push("Do not change into a new disguise.");
 
 	if (Math.random() < 0.20
 		&& document.getElementById("disguise").checked == 0
 		&& !koExits.includes(exit))
 		extras.push("Do not kill or subdue non-targets.");
+	
+	if (Math.random() < 0.15
+		&& document.getElementById("disguise").checked == 0
+		&& !koExits.includes(exit))
+		extras.push("Do not sedate non-targets.");
 	
 	if (Math.random() < 0.18) 
 		extras.push("Do not throw items as distractions.");
