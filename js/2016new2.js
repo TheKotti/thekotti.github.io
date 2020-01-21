@@ -714,6 +714,54 @@ var pz = {
   ]
 };
 
+var hsf = {
+  missionTitle: "Hokkaido Snow Festival",
+  melee: [
+    "Fiber Wire",
+    "Scalpel",
+    "Scissors",
+    "Kitchen Knife",
+    "Cleaver",
+    "Katana",
+    "Screwdriver",
+    "Fire Axe",
+    "Icicle"
+  ],
+  targetList: ["Dmitri Federov"],
+  entry: [
+    "Spa",
+    "Infiltrating Along the Mountain Path",
+    "Restaurant",
+    "Undercover in the Staff Quarters",
+    "Undercover in the Kitchen",
+    "Undercover in the Garden",
+    "Morgue",
+    "Undercover in the Operating Theater"
+  ],
+  exit: ["Helicopter", "Snowmobile", "Hiking Route", "Cable Car"],
+  disguises: [
+    "Ninja",
+    "47 in his Suit",
+    "Baseball Player",
+    "Bodyguard",
+    "Chef",
+    "Chief Surgeon",
+    "Doctor",
+    "Handyman",
+    "Helicopter Pilot",
+    "Hospital Director",
+    "Morgue Doctor",
+    "Motorcyclist",
+    "Patient",
+    "Resort Security",
+    "Resort Staff",
+    "Surgeon",
+    "VIP Patient (Dexter)",
+    "VIP Patient (Portman)",
+    "Yoga Instructor"
+  ]
+};
+
 var tfl = {
   missionTitle: "The Finish Line",
   melee: [
@@ -1184,11 +1232,11 @@ var tlr = {
     "Steven Bradley's Bodyguard - Larry Cox",
     "Tyson William's Bodyguard - Mike Thompson",
     "Womanising Guard at Tiki Hut - Bharat Kurian",
-    "Guard Sitting at the Red Light TV - Mike Osmond",
+    "Villa Guard Sitting at the Red Light TV - Mike Osmond",
     "Long Haired Man at Restaraunt - Liam Young",
     "Tech Crew - James Firth",
     "Private Villa Butler - Carl Lewis",
-    "Daring Shark Pool Man - Carl Lewis",
+    "Daring Shark Pool Man - Mathew Parker",
     "The Thief - Leah Cooper",
     "The New Tech Crew Guy - Luo Shoushan"
   ],
@@ -1204,8 +1252,8 @@ var tlr = {
   disguises: [
     "47 in his Suit",
     "Dr. Singh",
-    "Villa guard",
-    "Resort guard",
+    "Villa Guard",
+    "Resort Guard",
     "Bodyguard",
     "Resort Staff",
     "Gas Suit",
@@ -1350,6 +1398,7 @@ var mission_names_map = {
   TS: ts,
   TA: ta,
   PZ: pz,
+  HSF: hsf,
   TFL: tfl,
   THS: ths,
   CAG: cag,
