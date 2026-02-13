@@ -29,7 +29,13 @@ function createContainerObject() {
     iog,
     tlr,
     ast,
-    abp
+    abp,
+    ototw,
+    ditf,
+    ap,
+    eoae,
+    tf,
+    sitw
   ];
   //The Vector is missing due to way too many workarounds for dribbleondo to get that mission working properly.
 
