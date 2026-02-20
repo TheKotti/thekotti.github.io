@@ -54,12 +54,25 @@ var suitStarts = [
   "Outside Chawl",
   "Resort Pier",
   "Shark Hut",
-  "Resort Pool"
+  "Resort Pool",
+  "Burj Al-Ghazali Exterior",
+  "Atrium Lobby",
+  "Main Road",
+  "Behind Mansion",
+  "River-Side Walkway",
+  "Balcony",
+  "Parking Lot",
+  "Shrine",
+  "Club Entrance",
+  "Radio Tower",
+  "Western Beach",
+    "Stilt Village",
+    "Central Social Hub"
 ];
 
 var disguiseExits = ["Ambulance", "Trash Truck"];
 
-var koExits = ["Merchant's Car", "Rico's Car", "Local's Car", "Roadwork Gate"];
+var koExits = ["Merchant's Car", "Rico's Car", "Local's Car", "Roadwork Gate", "Food Delivery Scooter"];
 
 var generic = {
   kills: [
@@ -1384,6 +1397,298 @@ var ast = {
   ]
 };
 
+var ototw = {
+  missionTitle: "On Top of the World",
+  melee: [
+    "Fiber Wire",
+    "Screwdriver",
+    "Cleaver",
+    "Kitchen Knife",
+    "Scissors",
+    "Letter Opener",
+    "Fire Axe",
+    "Ornate Scimitar"
+  ],
+  targetList: ["Carl Ingram", "Marcus Stuyvesant"],
+  contractTargets: [
+    "Carl Ingram",
+    "Marcus Stuyvesant"
+  ],
+  entry: [
+    "Burj Al-Ghazali Exterior",
+    "Atrium Lobby",
+    "Meeting Room",
+    "Art Installation",
+    "Guard Room",
+    "Penthouse"
+  ],
+  exit: [
+    "Skydiving (Penthouse)",
+    "Elevator Shaft (Near Penthouse Reception)",
+    "Skydiving (Near Art Gallery)",
+    "Helicopter",
+    "Elevator Shaft (Staff Hallways)",
+    "Lobby Elevator"
+  ],
+  disguises: [
+    "47 in his suit",
+    "Assassin (Zana Kazem)",
+    "Event Staff",
+    "Kitchen Staff",
+    "Event Security",
+    "Maintenance Staff",
+    "Penthouse Guard",
+    "Art Crew",
+    "Helicopter Pilot",
+    "Penthouse Staff",
+    "Famous Chef",
+    "Ingram's Bodyguard"
+  ]
+};
+
+var ditf = {
+  missionTitle: "Death in the Family",
+  melee: [
+    "Fiber Wire",
+    "Letter Opener",
+    "Barber Razor",
+    "Garden Fork",
+    "Shears",
+    "Scissors",
+    "Unicorn Horn",
+    "Saber",
+    "Hatchet"
+  ],
+  targetList: ["Alexa Carlisle"],
+  contractTargets: ["Alexa Carlisle"],
+  entry: [
+    "Main Road",
+    "Garden",
+    "Staff Room",
+    "Behind Mansion",
+    "Library",
+    "Zachary's Bedroom"
+  ],
+  exit: [
+    "Boat",
+    "Bridge",
+    "Hearse",
+    "Motorcycle"
+  ],
+  disguises: [
+    "47 in his suit",
+    "Mansion Guard",
+    "Private Investigator",
+    "Mansion Staff",
+    "Bodyguard",
+    "Lawyer",
+    "Photographer",
+    "Gardener",
+    "Undertaker"
+  ]
+};
+
+var eoae = {
+  missionTitle: "End of an Era",
+  melee: [
+    "Fiber Wire",
+    "Screwdriver",
+    "Fire Axe",
+    "Kitchen Knife",
+    "Letter Opener",
+    "Scissors",
+    "Garden Fork",
+    "Cleaver"
+  ],
+  targetList: ["Hush", "Imogen Royce"],
+  contractTargets: ["Hush", "Imogen Royce"],
+  entry: [
+    "River-Side Walkway",
+    "Restaurant Kitchen",
+    "Facility Rooftop",
+    "The Block",
+    "Balcony",
+    "Facility Locker Room"
+  ],
+  exit: [
+    "Apartment",
+    "Motorcycle",
+    "Facilty Emergency Exit",
+    "Train"
+  ],
+  disguises: [
+    "47 in his suit",
+    "Mr. Pritchard",
+    "Street Guard",
+    "Block Guard",
+    "Homeless Person",
+    "Dumplings Cook",
+    "Researcher",
+    "Test Subject",
+    "Facility Engineer",
+    "Facility Security",
+    "Facility Guard",
+    "Facility Analyst"
+  ]
+};
+
+var tf = {
+  missionTitle: "The Farewell",
+  melee: [
+    "Kitchen Knife",
+    "Icicle",
+    "Screwdriver",
+    "Hobby Knife",
+    "Garden Fork",
+    "Grape Knife",
+    "Fire Axe",
+    "Shears",
+    "Sapper's Axe",
+    "Broadsword",
+    "Old Axe",
+    "Jarl's Pirate Saber",
+    "Hatchet",
+    "Machete",
+    "Fiber Wire"
+  ],
+  targetList: ["Don Archibald Yates", "Tamara Vidal"],
+  contractTargets: ["Don Archibald Yates", "Tamara Vidal"],
+  entry: [
+    "Parking Lot",
+    "Vineyard",
+    "Tasting Room",
+    "Shrine",
+    "Sniper Spot",
+    "Dining Area"
+  ],
+  exit: [
+    "Yates' Car",
+    "Boat",
+    "Secret Tunnel",
+    "Vineyard Gate",
+    "Black Car",
+    "Tango with Diana"
+  ],
+  disguises: [
+    "47 in his suit",
+    "The Lawyer",
+    "Providence Herald",
+    "Waiter",
+    "Chief Winemaker",
+    "Gaucho",
+    "Corvo Black",
+    "Bodyguard",
+    "Asado Chef",
+    "Sommelier",
+    "Head of Security",
+    "Mercanary",
+    "Tango Musician"
+  ]
+};
+
+var ap = {
+missionTitle: "Apex Predator",
+melee: [
+  "Screwdriver",
+  "Fiber Wire",
+  "Fire Axe",
+  "Old Axe",
+  "Garden Fork",
+  "Hobby Knife",
+  "Kitchen Knife"
+],
+targetList: [
+  "Agent Davenport",
+  "Agent Tremaine",
+  "Agent Thames",
+  "Agent Chamberlin",
+  "Agent Green"
+],
+contractTargets: [
+  "Agent Davenport",
+  "Agent Tremaine",
+  "Agent Thames",
+  "Agent Chamberlin",
+  "Agent Green",
+  "Agent Montgomery",
+  "Agent Banner",
+  "Agent Swan",
+  "Agent Rhodes",
+  "Agent Lowenthal"
+],
+entry: [
+  "Club Entrance",
+  "Projection Bar",
+  "Radio Tower",
+  "Chill Out",
+  "DJ Booth",
+  "Biker Hangout"
+],
+exit: [
+  "Motorcycle",
+  "Food Delivery Scooter",
+  "Bicycle",
+  "Basement Emergency Exit"
+],
+disguises: [
+  "47 in his suit",
+  "Bartender",
+  "Biker",
+  "Club Crew",
+  "Club Security",
+  "Delivery Guy",
+  "DJ",
+  "Dealer",
+  "Florida Man",
+  "Rolf Hirchmϋller",
+  "Technician"
+]
+};
+
+var sitw = {
+  missionTitle: "Shadows in the Water",
+  melee: [
+    "Fiber Wire",
+    "Scissors",
+    "Cleaver",
+    "Starfish",
+    "Barber Razor",
+    "Kitchen Knife",
+    "Screwdriver",
+    "Folding Knife",
+    "Scrap Sword"
+  ],
+  targetList: ['Sinki "Akka" Venthan', "Noel Crest"],
+  contractTargets: ['Sinki "Akka" Venthan', "Noel Crest"],
+  entry: [
+    "Western Beach",
+    "Stilt Village",
+    "Central Social Hub",
+    "Shrine",
+    "Pirate Camp",
+    "Militia Camp"
+  ],
+  exit: [
+    "Submarine",
+    "Bridge Extaction Point",
+    "Militia Boat",
+    "Village Boat",
+    "Beach Extraction Point",
+    "Western Beach Boat",
+    "Workshop Boat"
+  ],
+  disguises: [
+    "47 in his suit",
+    "Cook",
+    "Emgineer",
+    "Hippie",
+    "Metal Worker",
+    "Militia Soldier",
+    "Pirate",
+    "The Buccaneer"
+  ]
+};
+
 var mission_names_map = {
   TSS: showstopper,
   HH: hh,
@@ -1409,7 +1714,13 @@ var mission_names_map = {
   IOG: iog,
   TLR: tlr,
   AST: ast,
-  ABP: abp
+  ABP: abp,
+  OTOTW: ototw,
+  DITF: ditf,
+  AP: ap,
+  EOAE: eoae,
+  TF: tf,
+  SITW: sitw
 };
 
 var killTypesMap = {
