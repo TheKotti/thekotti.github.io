@@ -1528,7 +1528,7 @@ var eoae = {
     "Facility Engineer",
     "Facility Security",
     "Facility Guard",
-    "Faciity Analyst"
+    "Facility Analyst"
   ]
 };
 
